@@ -1,0 +1,97 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+class Warga extends CI_Controller {
+  
+	public function index()
+	{
+    $data['konten'] = 'admin/warga/index';
+    $data['warga']  = $this->WargaModel->getAll();
+		$this->load->view('admin/index', $data);
+	}
+  
+	public function tambah()
+	{
+    if ($this->input->post()) {
+      $this->form_validation->set_rules('nik', 'NIK', 'required');
+      $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required');
+      if ($this->form_validation->run() == TRUE) {
+        $this->WargaModel->insert();
+        $this->session->set_flashdata('pesan', '
+          <div class="alert alert-success" role="alert">
+            Berhasil Tambah Data Warga
+          </div>
+        ');
+        redirect('admin/warga.html');
+      } else {
+        $this->session->set_flashdata('pesan', '
+          <div class="alert alert-danger" role="alert">' .
+            validation_errors() .
+          '</div>
+        ');
+      }
+    }
+    $data['konten'] = 'admin/warga/tambah';
+		$this->load->view('admin/index', $data);
+	}
+
+  public function upload()
+  {
+    $fileName = $_FILES['file']['name'];
+          
+    $config['upload_path']    = './assets/'; //path upload
+    $config['file_name']      = $fileName;  // nama file
+    $config['allowed_types']  = 'xls|xlsx|csv'; //tipe file yang diperbolehkan
+    $config['max_size']       = 10000; // maksimal sizze
+
+    $this->load->library('upload'); //meload librari upload
+    $this->upload->initialize($config);
+          
+    if(! $this->upload->do_upload('file') ){
+      echo $this->upload->display_errors();exit();
+    }
+              
+    $inputFileName  = './assets/' . $this->upload->data('file_name');
+
+    try {
+      $inputFileType  = PHPExcel_IOFactory::identify($inputFileName);
+      $objReader      = PHPExcel_IOFactory::createReader($inputFileType);
+      $objPHPExcel    = $objReader->load($inputFileName);
+    } catch(Exception $e) {
+      die('Error loading file "'.pathinfo($inputFileName,PATHINFO_BASENAME).'": '.$e->getMessage());
+    }
+
+    $sheet          = $objPHPExcel->getSheet(0);
+    $highestRow     = $sheet->getHighestRow();
+    $highestColumn  = $sheet->getHighestColumn();
+
+    for ($row = 2; $row <= $highestRow; $row++) {                  //  Read a row of data into an array                 
+      $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);   
+
+      // Sesuaikan key array dengan nama kolom di database                                                         
+      $data = array(
+        "nik"   => $rowData[0][0],
+        "nama"  => $rowData[0][1]
+      );
+
+      $insert = $this->db->insert("warga",$data);
+    }
+    $this->session->set_flashdata('pesan', '
+      <div class="alert alert-success" role="alert">
+        Berhasil Import Data
+      </div>
+    ');
+    redirect('admin/warga.html');
+  }
+
+  public function hapus($id_warga)
+  {
+    $this->WargaModel->hapus($id_warga);
+    $this->session->set_flashdata('pesan', '
+      <div class="alert alert-success" role="alert">
+        Data Berhasil Dihapus
+      </div>
+    ');
+    redirect('admin/warga.html');
+  }
+}
