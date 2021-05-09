@@ -1,3 +1,9 @@
+<div class="form-inline">
+  <form class="search-form" action="<?= base_url(); ?>warga/cari.html" method="get">
+    <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Search ..." aria-label="Search" name="nama">
+    <button type="submit" class="btn btn-success">Search</button>
+  </form>
+</div>
 <div class="card">
   <div class="card-header">
     Data Warga

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Bulan Mei 2021 pada 14.52
+-- Waktu pembuatan: 09 Bulan Mei 2021 pada 07.04
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -39,7 +39,28 @@ CREATE TABLE `bantuan` (
 --
 
 INSERT INTO `bantuan` (`id_bantuan`, `id_warga`, `jenis_bantuan`) VALUES
-(3, 7, 'pkh');
+(4, 8, 'pkh');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `berita`
+--
+
+CREATE TABLE `berita` (
+  `id_berita` int(11) NOT NULL,
+  `judul` varchar(191) NOT NULL,
+  `isi` text NOT NULL,
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `foto` varchar(191) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `berita`
+--
+
+INSERT INTO `berita` (`id_berita`, `judul`, `isi`, `tanggal`, `foto`) VALUES
+(1, 'judul', '<p>isi</p>', '2021-05-09 03:44:49', 'pancasila2.PNG');
 
 -- --------------------------------------------------------
 
@@ -50,17 +71,15 @@ INSERT INTO `bantuan` (`id_bantuan`, `id_warga`, `jenis_bantuan`) VALUES
 CREATE TABLE `saran` (
   `id_saran` int(11) NOT NULL,
   `id_warga` int(191) NOT NULL,
-  `nik` varchar(191) NOT NULL,
-  `nama` varchar(191) NOT NULL,
-  `foto` varchar(191) NOT NULL
+  `saran_perubahan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `saran`
 --
 
-INSERT INTO `saran` (`id_saran`, `id_warga`, `nik`, `nama`, `foto`) VALUES
-(1, 6, '3213012611980001', 'M. Bagas Setia', 'Foto_Wisuda.jpg');
+INSERT INTO `saran` (`id_saran`, `id_warga`, `saran_perubahan`) VALUES
+(2, 8, 'fotonya salah');
 
 -- --------------------------------------------------------
 
@@ -91,15 +110,22 @@ CREATE TABLE `warga` (
   `id_warga` int(11) NOT NULL,
   `nik` varchar(191) NOT NULL,
   `nama` varchar(191) NOT NULL,
-  `foto` varchar(191) NOT NULL
+  `foto` varchar(191) NOT NULL,
+  `tempat_lahir` varchar(191) NOT NULL,
+  `tanggal_lahir` date NOT NULL,
+  `alamat` text NOT NULL,
+  `status_perkawinan` enum('menikah','belum_menikah') NOT NULL,
+  `status_kematian` enum('0','1') NOT NULL DEFAULT '0',
+  `tanggal_kematian` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `warga`
 --
 
-INSERT INTO `warga` (`id_warga`, `nik`, `nama`, `foto`) VALUES
-(7, '3213012611980001', 'M. Bagas Setia Permana', 'Foto_Wisuda1.jpg');
+INSERT INTO `warga` (`id_warga`, `nik`, `nama`, `foto`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `status_perkawinan`, `status_kematian`, `tanggal_kematian`) VALUES
+(8, '3213012611980001', 'M. Bagas Setia Permana', 'Foto_Wisuda2.jpg', 'Bandung', '1998-11-26', 'Kp. Pasir Gombong Rt. 15/07 Desa Sukamandi Kec. Sagalaherang Kab. Subang ', 'menikah', '0', '0000-00-00'),
+(9, '2141434', 'a', 'pancasila.PNG', 'Bandung', '2021-05-09', 'a', 'menikah', '0', '2021-05-10');
 
 --
 -- Indexes for dumped tables
@@ -110,6 +136,12 @@ INSERT INTO `warga` (`id_warga`, `nik`, `nama`, `foto`) VALUES
 --
 ALTER TABLE `bantuan`
   ADD PRIMARY KEY (`id_bantuan`);
+
+--
+-- Indeks untuk tabel `berita`
+--
+ALTER TABLE `berita`
+  ADD PRIMARY KEY (`id_berita`);
 
 --
 -- Indeks untuk tabel `saran`
@@ -137,19 +169,25 @@ ALTER TABLE `warga`
 -- AUTO_INCREMENT untuk tabel `bantuan`
 --
 ALTER TABLE `bantuan`
-  MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_bantuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `saran`
 --
 ALTER TABLE `saran`
-  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `warga`
 --
 ALTER TABLE `warga`
-  MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

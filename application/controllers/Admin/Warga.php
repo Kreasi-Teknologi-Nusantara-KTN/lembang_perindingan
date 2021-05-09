@@ -15,6 +15,10 @@ class Warga extends CI_Controller {
     if ($this->input->post()) {
       $this->form_validation->set_rules('nik', 'NIK', 'required');
       $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required');
+      $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
+      $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
+      $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+      $this->form_validation->set_rules('status_perkawinan', 'Status Perkawinan', 'required');
       if ($this->form_validation->run() == TRUE) {
         $this->WargaModel->insert();
         $this->session->set_flashdata('pesan', '
@@ -70,8 +74,12 @@ class Warga extends CI_Controller {
 
       // Sesuaikan key array dengan nama kolom di database                                                         
       $data = array(
-        "nik"   => $rowData[0][0],
-        "nama"  => $rowData[0][1]
+        "nik"               => $rowData[0][0],
+        "nama"              => $rowData[0][1],
+        "tempat_lahir"      => $rowData[0][2],
+        "tanggal_lahir"     => $rowData[0][3],
+        "alamat"            => $rowData[0][4],
+        "status_perkawinan" => $rowData[0][5],
       );
 
       $insert = $this->db->insert("warga",$data);
@@ -93,5 +101,40 @@ class Warga extends CI_Controller {
       </div>
     ');
     redirect('admin/warga.html');
+  }
+
+  public function dataKematian()
+  {
+    if ($this->input->post()) {
+      $this->WargaModel->tambahDataKematian();
+      $this->session->set_flashdata('pesan', '
+        <div class="alert alert-success" role="alert">
+          Berhasil Tambah Data
+        </div>
+      ');
+      redirect('admin/data_kematian.html');
+    }
+    $data['konten']   = 'admin/dataKematian';
+    $data['kematian'] = $this->WargaModel->getDataKematian();
+    $data['warga']    = $this->WargaModel->getAll();
+		$this->load->view('admin/index', $data);
+  }
+
+  public function hapusDataKematian($id_warga)
+  {
+    $this->WargaModel->hapusDataKematian($id_warga);
+    $this->session->set_flashdata('pesan', '
+      <div class="alert alert-success" role="alert">
+        Berhasil Hapus Data
+      </div>
+    ');
+    redirect('admin/data_kematian.html');
+  }
+
+  public function cari()
+  {
+    $data['warga']  = $this->WargaModel->cari();
+    $data['konten'] = 'admin/warga/index';
+		$this->load->view('admin/index', $data);
   }
 }

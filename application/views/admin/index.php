@@ -22,6 +22,8 @@
   <link rel="stylesheet" href="<?= base_url(); ?>vendors/flag-icon-css/css/flag-icon.min.css">
   <link rel="stylesheet" href="<?= base_url(); ?>vendors/selectFX/css/cs-skin-elastic.css">
   <link rel="stylesheet" href="<?= base_url(); ?>vendors/jqvmap/dist/jqvmap.min.css">
+  <link rel="stylesheet" href="<?= base_url(); ?>vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url(); ?>vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
 
 
   <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css">
@@ -90,6 +92,9 @@
           <li>
             <a href="<?= base_url(); ?>admin/warga.html"> <i class="menu-icon fa fa-laptop"></i>Warga</a>
           </li>
+          <li>
+            <a href="<?= base_url(); ?>admin/data_kematian.html"> <i class="menu-icon fa fa-laptop"></i>Data Kematian</a>
+          </li>
           <h3 class="menu-title">Data Bantuan</h3>
           <li>
             <a href="<?= base_url(); ?>admin/bantuan/pkh"> <i class="menu-icon fa fa-laptop"></i>Data PKH</a>
@@ -103,6 +108,9 @@
           <h3 class="menu-title">Informasi Desa</h3>
           <li>
             <a href="<?= base_url(); ?>admin/visi_misi.html"> <i class="menu-icon fa fa-laptop"></i> Visi Misi</a>
+          </li>
+          <li>
+            <a href="<?= base_url(); ?>admin/berita_desa.html"> <i class="menu-icon fa fa-laptop"></i> Berita Desa</a>
           </li>
           <h3 class="menu-title"></h3>
           <li>
@@ -192,6 +200,17 @@
   <script src="<?= base_url(); ?>vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
   <script src="<?= base_url(); ?>vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
   <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+  <script src="<?= base_url(); ?>assets/js/init-scripts/data-table/datatables-init.js"></script>
+  <script src="<?= base_url(); ?>vendors/jszip/dist/jszip.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/pdfmake/build/pdfmake.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
   <script>
       (function($) {
           "use strict";

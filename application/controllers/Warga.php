@@ -13,8 +13,7 @@ class Warga extends CI_Controller {
   public function saranPerubahan($id_warga)
   {
     if ($this->input->post()) {
-      $this->form_validation->set_rules('nik', 'NIK', 'required');
-      $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required');
+      $this->form_validation->set_rules('saran_perubahan', 'Saran Perubahan', 'required');
       if ($this->form_validation->run() == TRUE) {
         $this->SaranModel->insert($id_warga);
         $this->session->set_flashdata('pesan', '
@@ -44,6 +43,20 @@ class Warga extends CI_Controller {
       $data['misi'] = '';
     }
     $data['konten'] = 'warga/visiMisi';
+		$this->load->view('halamanAwal', $data);
+  }
+
+  public function beritaDesa()
+  {
+    $data['konten'] = 'warga/beritaDesa/index';
+    $data['berita'] = $this->BeritaModel->getAll();
+		$this->load->view('halamanAwal', $data);
+  }
+
+  public function cari()
+  {
+    $data['warga']  = $this->WargaModel->cari();
+    $data['konten'] = 'warga/index';
 		$this->load->view('halamanAwal', $data);
   }
 }

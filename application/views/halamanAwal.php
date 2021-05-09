@@ -74,6 +74,9 @@
           <li>
             <a href="<?= base_url(); ?>visi_misi.html"> <i class="menu-icon fa fa-laptop"></i> Visi Misi</a>
           </li>
+          <li>
+            <a href="<?= base_url(); ?>berita_desa.html"> <i class="menu-icon fa fa-laptop"></i> Berita Desa</a>
+          </li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav>

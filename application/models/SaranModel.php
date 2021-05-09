@@ -17,33 +17,15 @@ class SaranModel extends CI_Model {
 
   public function insert($id_warga)
   {
-    if ($_FILES['foto']['name']) {
-      $config['upload_path']    = './assets/'; //path upload
-      $config['allowed_types']  = 'png|jpg|jpeg'; //tipe file yang diperbolehkan
-      $config['max_size']       = 10000; // maksimal sizze
-  
-      $this->load->library('upload'); //meload librari upload
-      $this->upload->initialize($config);
-            
-      if(! $this->upload->do_upload('foto') ){
-        echo $this->upload->display_errors();exit();
-      } else {
-        $foto = $this->upload->data('file_name');
-      }
-    } else {
-      $foto = $this->input->post('foto_lama');
-    }
-    
     $this->db->insert('saran', [
-      'id_warga'  => $id_warga,
-      'nik'       => $this->input->post('nik'),
-      'nama'      => $this->input->post('nama'),
-      'foto'      => $foto
+      'id_warga'        => $id_warga,
+      'saran_perubahan' => $this->input->post('saran_perubahan')
     ]);
   }
 
   public function get($id_warga)
   {
+    $this->db->join('warga', 'saran.id_warga = warga.id_warga');
     return $this->db->get('saran', [
       'id_warga'  => $id_warga
     ])->result_array();

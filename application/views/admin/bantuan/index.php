@@ -49,11 +49,14 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">NIK</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Foto</th>
-            <th scope="col">Aksi</th>
+          <th scope="col">#</th>
+          <th scope="col">NIK</th>
+          <th scope="col">Nama</th>
+          <th scope="col">Tempat, Tanggal Lahir</th>
+          <th scope="col">Alamat</th>
+          <th scope="col">Status Perkawinan</th>
+          <th scope="col">Foto</th>
+          <th scope="col">Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -64,7 +67,24 @@
                 <td><?= $no++; ?></td>
                 <td><?= $key['nik']; ?></td>
                 <td><?= $key['nama']; ?></td>
-                <td><img src="<?= base_url('assets/' . $key['foto']); ?>" alt="" width="15%"></td>
+                <td><?= $key['tempat_lahir'] . ', ' . $key['tanggal_lahir']; ?></td>
+                <td><?= $key['alamat']; ?></td>
+                <td>
+                  <?php 
+                    switch ($key['status_perkawinan']) {
+                      case 'menikah':
+                        echo 'Menikah';
+                        break;
+                      case 'belum_menikah':
+                        echo 'Belum Menikah';
+                        break;
+                      
+                      default:
+                        # code...
+                        break;
+                    }
+                  ?>
+                <td><img src="<?= base_url('assets/' . $key['foto']); ?>" alt="" width="30%"></td>
                 <td>
                   <a href="<?= base_url('admin/hapus_bantuan/' . $key['id_bantuan']); ?>" class="btn btn-danger">Hapus</a>
                 </td>
