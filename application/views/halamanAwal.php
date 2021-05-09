@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Admin</title>
+  <title>Sistem Masyarakat</title>
   <meta name="description" content="Sufee Admin - HTML5 Admin Template">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -59,6 +59,12 @@
           </li>
           <li>
             <a href="<?= base_url(); ?>warga.html"> <i class="menu-icon fa fa-laptop"></i>Warga</a>
+          </li>
+          <li>
+            <a href="<?= base_url(); ?>warga/data_kematian.html"> <i class="menu-icon fa fa-laptop"></i>Data Kematian</a>
+          </li>
+          <li>
+            <a href="<?= base_url(); ?>warga/saran_perubahan.html"> <i class="menu-icon fa fa-laptop"></i>Saran Perubahan</a>
           </li>
           <h3 class="menu-title">Data Bantuan</h3>
           <li>

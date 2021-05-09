@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Bulan Mei 2021 pada 07.04
+-- Waktu pembuatan: 09 Bulan Mei 2021 pada 14.49
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -70,7 +70,6 @@ INSERT INTO `berita` (`id_berita`, `judul`, `isi`, `tanggal`, `foto`) VALUES
 
 CREATE TABLE `saran` (
   `id_saran` int(11) NOT NULL,
-  `id_warga` int(191) NOT NULL,
   `saran_perubahan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -78,8 +77,9 @@ CREATE TABLE `saran` (
 -- Dumping data untuk tabel `saran`
 --
 
-INSERT INTO `saran` (`id_saran`, `id_warga`, `saran_perubahan`) VALUES
-(2, 8, 'fotonya salah');
+INSERT INTO `saran` (`id_saran`, `saran_perubahan`) VALUES
+(2, 'fotonya salah'),
+(3, 'a');
 
 -- --------------------------------------------------------
 
@@ -124,8 +124,8 @@ CREATE TABLE `warga` (
 --
 
 INSERT INTO `warga` (`id_warga`, `nik`, `nama`, `foto`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `status_perkawinan`, `status_kematian`, `tanggal_kematian`) VALUES
-(8, '3213012611980001', 'M. Bagas Setia Permana', 'Foto_Wisuda2.jpg', 'Bandung', '1998-11-26', 'Kp. Pasir Gombong Rt. 15/07 Desa Sukamandi Kec. Sagalaherang Kab. Subang ', 'menikah', '0', '0000-00-00'),
-(9, '2141434', 'a', 'pancasila.PNG', 'Bandung', '2021-05-09', 'a', 'menikah', '0', '2021-05-10');
+(8, '3213012611980001', 'M. Bagas Setia Permana', 'Foto_Wisuda2.jpg', 'Bandung', '1998-11-26', 'Kp. Pasir Gombong Rt. 15/07 Desa Sukamandi Kec. Sagalaherang Kab. Subang ', 'belum_menikah', '0', '0000-00-00'),
+(9, '2141434', 'a', 'pancasila.PNG', 'Bandung', '2021-05-09', 'a', 'menikah', '1', '2021-05-07');
 
 --
 -- Indexes for dumped tables
@@ -181,7 +181,7 @@ ALTER TABLE `berita`
 -- AUTO_INCREMENT untuk tabel `saran`
 --
 ALTER TABLE `saran`
-  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `warga`

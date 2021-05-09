@@ -95,6 +95,9 @@
           <li>
             <a href="<?= base_url(); ?>admin/data_kematian.html"> <i class="menu-icon fa fa-laptop"></i>Data Kematian</a>
           </li>
+          <li>
+            <a href="<?= base_url(); ?>admin/saran_perubahan.html"> <i class="menu-icon fa fa-laptop"></i>Saran Perubahan</a>
+          </li>
           <h3 class="menu-title">Data Bantuan</h3>
           <li>
             <a href="<?= base_url(); ?>admin/bantuan/pkh"> <i class="menu-icon fa fa-laptop"></i>Data PKH</a>

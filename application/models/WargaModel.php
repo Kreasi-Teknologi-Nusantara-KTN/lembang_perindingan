@@ -26,6 +26,37 @@ class WargaModel extends CI_Model {
       'foto'              => $this->upload->data('file_name')
     ]);
 	}
+  
+	public function edit($id_warga)
+	{
+    if ($_FILES['foto']['name'] == '') {
+      $foto = $this->input->post('foto_lama');
+    } else {
+      $config['upload_path']    = './assets/'; //path upload
+      $config['allowed_types']  = 'png|jpg|jpeg'; //tipe file yang diperbolehkan
+      $config['max_size']       = 10000; // maksimal sizze
+
+      $this->load->library('upload'); //meload librari upload
+      $this->upload->initialize($config);
+            
+      if(! $this->upload->do_upload('foto') ){
+        echo $this->upload->display_errors();exit();
+      } else {
+        $foto = $this->upload->data('file_name');
+      }
+    }
+
+    $this->db->where('id_warga', $id_warga);
+    $this->db->update('warga', [
+      'nik'               => $this->input->post('nik'),
+      'nama'              => $this->input->post('nama'),
+      'tempat_lahir'      => $this->input->post('tempat_lahir'),
+      'tanggal_lahir'     => $this->input->post('tanggal_lahir'),
+      'alamat'            => $this->input->post('alamat'),
+      'status_perkawinan' => $this->input->post('status_perkawinan'),
+      'foto'              => $foto
+    ]);
+	}
 
   public function getAll()
   {
@@ -54,6 +85,19 @@ class WargaModel extends CI_Model {
 
   public function tambahDataKematian()
   {
+    $this->db->where('id_warga', $this->input->post('id_warga'));
+    $this->db->update('warga', [
+      'status_kematian'   => '1',
+      'tanggal_kematian'  => $this->input->post('tanggal_kematian')
+    ]);
+  }
+
+  public function editDataKematian($id_warga)
+  {
+    $this->db->where('id_warga', $id_warga);
+    $this->db->update('warga', [
+      'status_kematian'   => '0'
+    ]);
     $this->db->where('id_warga', $this->input->post('id_warga'));
     $this->db->update('warga', [
       'status_kematian'   => '1',

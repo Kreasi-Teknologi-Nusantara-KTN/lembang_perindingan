@@ -33,4 +33,15 @@ class Bantuan extends CI_Controller {
     ');
     redirect('admin/bantuan/' . $data);
   }
+  
+	public function edit($id_bantuan)
+	{
+    $this->BantuanModel->edit($id_bantuan);
+    $this->session->set_flashdata('pesan', '
+      <div class="alert alert-success" role="alert">
+        Berhasil Tambah Data Bantuan
+      </div>
+    ');
+    redirect('admin/bantuan/' . $this->input->post('jenis_bantuan'));
+	}
 }

@@ -5,14 +5,19 @@ class Admin extends CI_Controller {
   
 	public function index()
 	{
-    $data['konten'] = 'admin/dashboard';
+    $data['konten']           = 'admin/dashboard';
+    $data['jumlah_penduduk']  = count($this->WargaModel->getAll());
+    $data['jumlah_kematian']  = count($this->WargaModel->getDataKematian());
+    $data['jumlah_pkh']       = count($this->BantuanModel->getAll('pkh'));
+    $data['jumlah_blt']       = count($this->BantuanModel->getAll('blt'));
+    $data['jumlah_bst']       = count($this->BantuanModel->getAll('bst'));
 		$this->load->view('admin/index', $data);
 	}
 
-  public function saranPerubahanData($id_warga)
+  public function saranPerubahanData()
   {
     $data['konten'] = 'admin/saran/index';
-    $data['saran']  = $this->SaranModel->get($id_warga);
+    $data['saran']  = $this->SaranModel->get();
 		$this->load->view('admin/index', $data);
   }
 

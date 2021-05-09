@@ -77,9 +77,9 @@
                     }
                   ?>
                 </td>
-                <td><img src="<?= base_url('assets/' . $key['foto']); ?>" alt="" width="30%"></td>
+                <td><img src="<?= base_url('assets/' . $key['foto']); ?>" alt="" width="50%"></td>
                 <td>
-                  <a href="<?= base_url('admin/saran_perubahan_data/' . $key['id_warga']); ?>" class="btn btn-success">Saran Perubahan Data</a>
+                  <a href="<?= base_url('admin/warga/edit/' . $key['id_warga']); ?>" class="btn btn-success">Edit</a>
                   <a href="<?= base_url('admin/warga/hapus/' . $key['id_warga']); ?>" class="btn btn-danger">Hapus</a>
                 </td>
               </tr>

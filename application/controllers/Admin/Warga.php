@@ -137,4 +137,45 @@ class Warga extends CI_Controller {
     $data['konten'] = 'admin/warga/index';
 		$this->load->view('admin/index', $data);
   }
+
+  public function edit($id_warga)
+  {
+    if ($this->input->post()) {
+      $this->form_validation->set_rules('nik', 'NIK', 'required');
+      $this->form_validation->set_rules('nama', 'Nama Lengkap', 'required');
+      $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required');
+      $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required');
+      $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+      $this->form_validation->set_rules('status_perkawinan', 'Status Perkawinan', 'required');
+      if ($this->form_validation->run() == TRUE) {
+        $this->WargaModel->edit($id_warga);
+        $this->session->set_flashdata('pesan', '
+          <div class="alert alert-success" role="alert">
+            Berhasil Edit Data Warga
+          </div>
+        ');
+        redirect('admin/warga.html');
+      } else {
+        $this->session->set_flashdata('pesan', '
+          <div class="alert alert-danger" role="alert">' .
+            validation_errors() .
+          '</div>
+        ');
+      }
+    }
+    $data           = $this->WargaModel->get($id_warga);
+    $data['konten'] = 'admin/warga/edit';
+		$this->load->view('admin/index', $data);
+  }
+
+  public function editDataKematian($id_warga)
+  {
+    $this->WargaModel->editDataKematian($id_warga);
+    $this->session->set_flashdata('pesan', '
+      <div class="alert alert-success" role="alert">
+        Berhasil Edit Data Kematian
+      </div>
+    ');
+    redirect('admin/data_kematian.html');
+  }
 }

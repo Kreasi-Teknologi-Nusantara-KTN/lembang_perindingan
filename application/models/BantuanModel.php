@@ -28,4 +28,13 @@ class BantuanModel extends CI_Model {
     $this->db->delete('bantuan');
     return $data['jenis_bantuan'];
   }
+
+  public function edit($id_bantuan)
+  {
+    $this->db->where('id_bantuan', $id_bantuan);
+    $this->db->update('bantuan', [
+      'id_warga'      => $this->input->post('id_warga'),
+      'jenis_bantuan' => $this->input->post('jenis_bantuan')
+    ]);
+  }
 }

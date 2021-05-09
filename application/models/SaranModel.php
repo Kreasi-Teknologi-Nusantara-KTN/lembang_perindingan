@@ -15,19 +15,15 @@ class SaranModel extends CI_Model {
     return $data;
   }
 
-  public function insert($id_warga)
+  public function insert()
   {
     $this->db->insert('saran', [
-      'id_warga'        => $id_warga,
       'saran_perubahan' => $this->input->post('saran_perubahan')
     ]);
   }
 
-  public function get($id_warga)
+  public function get()
   {
-    $this->db->join('warga', 'saran.id_warga = warga.id_warga');
-    return $this->db->get('saran', [
-      'id_warga'  => $id_warga
-    ])->result_array();
+    return $this->db->get('saran')->result_array();
   }
 }

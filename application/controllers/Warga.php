@@ -10,18 +10,18 @@ class Warga extends CI_Controller {
 		$this->load->view('halamanAwal', $data);
 	}
 
-  public function saranPerubahan($id_warga)
+  public function saranPerubahan()
   {
     if ($this->input->post()) {
       $this->form_validation->set_rules('saran_perubahan', 'Saran Perubahan', 'required');
       if ($this->form_validation->run() == TRUE) {
-        $this->SaranModel->insert($id_warga);
+        $this->SaranModel->insert();
         $this->session->set_flashdata('pesan', '
           <div class="alert alert-success" role="alert">
             Saran Perubahan Berhasil Diupload
           </div>
         ');
-        redirect('warga.html');
+        redirect('warga/saran_perubahan.html');
       } else {
         $this->session->set_flashdata('pesan', '
           <div class="alert alert-danger" role="alert">' .
@@ -30,7 +30,6 @@ class Warga extends CI_Controller {
         ');
       }
     }
-    $data           = $this->WargaModel->get($id_warga);
     $data['konten'] = 'warga/saranPerubahan';
 		$this->load->view('halamanAwal', $data);
   }
@@ -57,6 +56,13 @@ class Warga extends CI_Controller {
   {
     $data['warga']  = $this->WargaModel->cari();
     $data['konten'] = 'warga/index';
+		$this->load->view('halamanAwal', $data);
+  }
+
+  public function dataKematian()
+  {
+    $data['konten']   = 'warga/dataKematian';
+    $data['kematian'] = $this->WargaModel->getDataKematian();
 		$this->load->view('halamanAwal', $data);
   }
 }
