@@ -13,6 +13,17 @@ class Admin extends CI_Controller {
     $data['jumlah_bst']       = count($this->BantuanModel->getAll('bst'));
 		$this->load->view('admin/index', $data);
 	}
+  
+	public function myProfile($edit = null)
+	{
+    if ($edit) {
+      $data['edit'] = true;
+    } else {
+      $data['edit'] = null;
+    }
+    $data['konten'] = 'admin/myProfile';
+		$this->load->view('admin/index', $data);
+	}
 
   public function saranPerubahanData()
   {
@@ -51,5 +62,26 @@ class Admin extends CI_Controller {
     }
     $data['konten'] = 'admin/visiMisi/edit';
 		$this->load->view('admin/index', $data);
+  }
+
+  public function uploadFoto()
+  {
+    $config['upload_path']    = './assets/'; //path upload
+    $config['allowed_types']  = 'png|jpg|jpeg'; //tipe file yang diperbolehkan
+    $config['max_size']       = 10000; // maksimal sizze
+
+    $this->load->library('upload'); //meload librari upload
+    $this->upload->initialize($config);
+          
+    if(! $this->upload->do_upload('foto') ){
+      $this->output
+        ->set_content_type('application/json')
+        ->set_output(json_encode(['foto' => false]));
+    } else {
+      $foto = $this->upload->data('file_name');
+      $this->output
+        ->set_content_type('application/json')
+        ->set_output(json_encode(['foto' => $foto]));
+    }
   }
 }

@@ -25,7 +25,10 @@ $route['admin/data_kematian/edit/(:any)']   = 'Admin/Warga/editDataKematian/$1';
 $route['admin/berita_desa.html']            = 'Admin/BeritaDesa';
 $route['admin/berita_desa/tambah.html']     = 'Admin/BeritaDesa/tambah';
 $route['admin/berita_desa/edit/(:any)']     = 'Admin/BeritaDesa/edit/$1';
-$route['admin/berita_desa/haous/(:any)']    = 'Admin/BeritaDesa/hapus/$1';
+$route['admin/berita_desa/hapus/(:any)']    = 'Admin/BeritaDesa/hapus/$1';
+$route['admin/my_profile.html']             = 'Admin/Admin/myProfile';
+$route['admin/my_profile/edit.html']        = 'Admin/Admin/myProfile/edit';
+$route['admin/upload.html']                 = 'Admin/Admin/uploadFoto';
 
 $route['warga.html']                    = 'Warga';
 $route['warga/cari.html']               = 'Warga/cari';

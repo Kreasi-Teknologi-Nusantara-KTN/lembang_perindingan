@@ -31,18 +31,35 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
   
   <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-app.js"></script>
-
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
   <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-analytics.js"></script>
-
-  <!-- Add Firebase products that you want to use -->
   <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
-
+  
+  <script src="<?= base_url(); ?>vendors/jquery/dist/jquery.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/popper.js/dist/umd/popper.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="<?= base_url(); ?>assets/js/main.js"></script>
+  <script src="<?= base_url(); ?>vendors/chart.js/dist/Chart.bundle.min.js"></script>
+  <script src="<?= base_url(); ?>assets/js/dashboard.js"></script>
+  <script src="<?= base_url(); ?>assets/js/widgets.js"></script>
+  <script src="<?= base_url(); ?>vendors/jqvmap/dist/jquery.vmap.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+  <script src="<?= base_url(); ?>vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+  <script src="<?= base_url(); ?>assets/js/init-scripts/data-table/datatables-init.js"></script>
+  <script src="<?= base_url(); ?>vendors/jszip/dist/jszip.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/pdfmake/build/pdfmake.min.js"></script>
+  <script src="<?= base_url(); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
   <script>
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
     var firebaseConfig = {
       apiKey: "AIzaSyBhKxRqTiw7Hh-mZUY0vgYaWp7CZwHFVuY",
       authDomain: "sistem-masyarakat.firebaseapp.com",
@@ -52,14 +69,50 @@
       appId: "1:943285463148:web:06a0341fdc7becad555049",
       measurementId: "G-4BPPQZ0FTV"
     };
-    // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     firebase.analytics();
     firebase.auth().onAuthStateChanged(function(user) {
       if (!user) {
         window.location.href = "<?= base_url(); ?>";
       }
+
+      if ('<?= $this->uri->segment('2'); ?>' == 'my_profile.html' || '<?= $this->uri->segment('2'); ?>' == 'my_profile') {
+        var user  = firebase.auth().currentUser;
+        var name, email, photoUrl, uid, emailVerified;
+        name          = user.displayName;
+        email         = user.email;
+        photoUrl      = user.photoURL;
+        emailVerified = user.emailVerified;
+        uid           = user.uid;
+        if (name !== null) {
+          $('#nama').val(name);
+        }
+        if (email !== null) {
+          $('#email').val(email);
+        }
+        if (photoUrl !== null) {
+          let src = '<?= base_url(); ?>assets/' + photoUrl;
+          $('#photoUrl').attr('src', src);
+        }
+      }
     });
+    
+    function logout() {
+      firebase.auth().signOut().then(() => {
+        window.location.href = "<?= base_url(); ?>";
+      }).catch((error) => {
+        // An error happened.
+      });
+    }
+    
+    ClassicEditor
+      .create( document.querySelector( '#editor' ) )
+      .catch( error => {
+        console.error( error );
+    } );
+
+    
+  
   </script>
 
 </head>
@@ -148,9 +201,7 @@
             </a>
 
             <div class="user-menu dropdown-menu">
-              <a class="nav-link" href="#"><i class="fa fa-user"></i> My Profile</a>
-
-              <a class="nav-link" href="#"><i class="fa fa-user"></i> Notifications <span class="count">13</span></a>
+              <a class="nav-link" href="<?= base_url(); ?>admin/my_profile.html"><i class="fa fa-user"></i> My Profile</a>
 
               <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
 
@@ -190,62 +241,7 @@
 
   <!-- Right Panel -->
 
-  <script src="<?= base_url(); ?>vendors/jquery/dist/jquery.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/popper.js/dist/umd/popper.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/main.js"></script>
 
-
-  <script src="<?= base_url(); ?>vendors/chart.js/dist/Chart.bundle.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/dashboard.js"></script>
-  <script src="<?= base_url(); ?>assets/js/widgets.js"></script>
-  <script src="<?= base_url(); ?>vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-  <script src="<?= base_url(); ?>vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-  <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/init-scripts/data-table/datatables-init.js"></script>
-  <script src="<?= base_url(); ?>vendors/jszip/dist/jszip.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/pdfmake/build/pdfmake.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
-  <script>
-      (function($) {
-          "use strict";
-
-          jQuery('#vmap').vectorMap({
-              map: 'world_en',
-              backgroundColor: null,
-              color: '#ffffff',
-              hoverOpacity: 0.7,
-              selectedColor: '#1de9b6',
-              enableZoom: true,
-              showTooltip: true,
-              values: sample_data,
-              scaleColors: ['#1de9b6', '#03a9f5'],
-              normalizeFunction: 'polynomial'
-          });
-      })(jQuery);
-
-    function logout() {
-      firebase.auth().signOut().then(() => {
-        window.location.href = "<?= base_url(); ?>";
-      }).catch((error) => {
-        // An error happened.
-      });
-    }
-    
-    ClassicEditor
-      .create( document.querySelector( '#editor' ) )
-      .catch( error => {
-        console.error( error );
-    } );
-  </script>
 
 </body>
 
