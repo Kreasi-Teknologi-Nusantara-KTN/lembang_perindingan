@@ -133,6 +133,33 @@
         );
       }
     }
+
+    function tambahAdmin() {
+      let user                = firebase.auth().currentUser;
+      let password            = $('#passwordAdmin').val();
+      let passwordKonfirmasi  = $('#passwordKonfirmasiAdmin').val();
+      let email               = $('#email').val();
+      if (password == passwordKonfirmasi) {
+        firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then(() => {
+          $('#alert').html(
+            `<div class="alert alert-success">Berhasil</div>`
+          );
+          $('#passwordAdmin').val('');
+          $('#passwordKonfirmasiAdmin').val('');
+          $('#email').val('');
+        })
+        .catch((error) => {
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
+      } else {
+        $('#alert').html(
+          `<div class="alert alert-danger">Password konfirmasi tidak sama</div>`
+        );
+      }
+    }
   </script>
 
 </head>

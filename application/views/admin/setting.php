@@ -4,7 +4,7 @@
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Ubah Password</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Tambah Admin</a>
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
@@ -19,5 +19,19 @@
     </div>
     <button type="button" class="btn btn-primary" onclick="gantiPassword()">Simpan</button>
   </div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" placeholder="Masukan Email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="passwordAdmin">Password</label>
+      <input type="password" class="form-control" id="passwordAdmin" placeholder="Masukan Password" name="passwordAdmin" required>
+    </div>
+    <div class="form-group">
+      <label for="passwordKonfirmasiAdmin">Konfirmasi Password</label>
+      <input type="password" class="form-control" id="passwordKonfirmasiAdmin" placeholder="Masukan Konfirmasi Password" name="passwordAdmin" required>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="tambahAdmin()">Simpan</button>
+  </div>
 </div>
