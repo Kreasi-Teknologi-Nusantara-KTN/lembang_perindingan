@@ -29,6 +29,7 @@ $route['admin/berita_desa/hapus/(:any)']    = 'Admin/BeritaDesa/hapus/$1';
 $route['admin/my_profile.html']             = 'Admin/Admin/myProfile';
 $route['admin/my_profile/edit.html']        = 'Admin/Admin/myProfile/edit';
 $route['admin/upload.html']                 = 'Admin/Admin/uploadFoto';
+$route['admin/setting.html']                = 'Admin/Admin/setting';
 
 $route['warga.html']                    = 'Warga';
 $route['warga/cari.html']               = 'Warga/cari';

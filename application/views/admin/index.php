@@ -60,7 +60,7 @@
   <script src="<?= base_url(); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
   <script>
 
-    var firebaseConfig = {
+    var firebaseConfig  = {
       apiKey: "AIzaSyBhKxRqTiw7Hh-mZUY0vgYaWp7CZwHFVuY",
       authDomain: "sistem-masyarakat.firebaseapp.com",
       projectId: "sistem-masyarakat",
@@ -92,7 +92,7 @@
         }
         if (photoUrl !== null) {
           let src = '<?= base_url(); ?>assets/' + photoUrl;
-          $('#photoUrl').attr('src', src);
+          $('.photoUrl').attr('src', src);
         }
       }
     });
@@ -111,8 +111,28 @@
         console.error( error );
     } );
 
-    
-  
+    function gantiPassword() {
+      let user                = firebase.auth().currentUser;
+      let password            = $('#password').val();
+      let passwordKonfirmasi  = $('#passwordKonfirmasi').val();
+      if (password == passwordKonfirmasi) {
+        user.updatePassword(password).then(function() {
+          $('#alert').html(
+            `<div class="alert alert-success">Berhasil</div>`
+          );
+          $('#password').val('');
+          $('#passwordKonfirmasi').val('');
+        }).catch(function(error) {
+          $('#alert').html(
+            `<div class="alert alert-danger">Gagal</div>`
+          );
+        });
+      } else {
+        $('#alert').html(
+          `<div class="alert alert-danger">Password konfirmasi tidak sama</div>`
+        );
+      }
+    }
   </script>
 
 </head>
@@ -197,13 +217,13 @@
         <div class="col-sm-5">
           <div class="user-area dropdown float-right">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="user-avatar rounded-circle" src="images/admin.jpg" alt="User Avatar">
+              <img class="user-avatar rounded-circle photoUrl" src="" alt="User Avatar">
             </a>
 
             <div class="user-menu dropdown-menu">
               <a class="nav-link" href="<?= base_url(); ?>admin/my_profile.html"><i class="fa fa-user"></i> My Profile</a>
 
-              <a class="nav-link" href="#"><i class="fa fa-cog"></i> Settings</a>
+              <a class="nav-link" href="<?= base_url(); ?>admin/setting.html"><i class="fa fa-cog"></i> Settings</a>
 
               <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
             </div>

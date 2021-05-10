@@ -84,4 +84,10 @@ class Admin extends CI_Controller {
         ->set_output(json_encode(['foto' => $foto]));
     }
   }
+
+  public function setting()
+  {
+    $data['konten'] = 'admin/setting';
+		$this->load->view('admin/index', $data);
+  }
 }

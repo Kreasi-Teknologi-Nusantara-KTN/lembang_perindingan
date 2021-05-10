@@ -6,7 +6,7 @@
     <?php if ($this->session->pesan) echo $this->session->pesan; ?>
     <form id="formEdit">
       <div class="form-group">
-        <?= $edit == true ? '<input type="file" name="foto" id="foto">' : '<img src="" alt="" id="photoUrl">' ; ?>
+        <?= $edit == true ? '<input type="file" name="foto" id="foto">' : '<img src="" alt="" id="photoUrl" class="photoUrl">' ; ?>
       </div>
       <div class="form-group">
         <label for="nama">Nama</label>
