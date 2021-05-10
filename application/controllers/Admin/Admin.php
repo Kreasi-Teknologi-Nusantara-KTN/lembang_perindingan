@@ -32,6 +32,17 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/index', $data);
   }
 
+  public function hapusSaranPerubahanData($id_saran)
+  {
+    $this->SaranModel->hapus($id_saran);
+    $this->session->set_flashdata('pesan', '
+      <div class="alert alert-success" role="alert">
+        Berhasil Hapus Saran
+      </div>
+    ');
+    redirect('admin/saran_perubahan.html');
+  }
+
   public function visiMisi()
   {
     if ($this->input->post()) {

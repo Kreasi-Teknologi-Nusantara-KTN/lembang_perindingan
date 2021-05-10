@@ -76,7 +76,7 @@
         window.location.href = "<?= base_url(); ?>";
       }
 
-      if ('<?= $this->uri->segment('2'); ?>' == 'my_profile.html' || '<?= $this->uri->segment('2'); ?>' == 'my_profile') {
+      // if ('<?= $this->uri->segment('2'); ?>' == 'my_profile.html' || '<?= $this->uri->segment('2'); ?>' == 'my_profile') {
         var user  = firebase.auth().currentUser;
         var name, email, photoUrl, uid, emailVerified;
         name          = user.displayName;
@@ -94,7 +94,7 @@
           let src = '<?= base_url(); ?>assets/' + photoUrl;
           $('.photoUrl').attr('src', src);
         }
-      }
+      // }
     });
     
     function logout() {

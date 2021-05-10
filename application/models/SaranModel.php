@@ -26,4 +26,10 @@ class SaranModel extends CI_Model {
   {
     return $this->db->get('saran')->result_array();
   }
+
+  public function hapus($id_saran)
+  {
+    $this->db->where('id_saran', $id_saran);
+    $this->db->delete('saran');
+  }
 }

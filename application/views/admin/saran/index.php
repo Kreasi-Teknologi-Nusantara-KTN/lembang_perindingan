@@ -10,6 +10,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Saran</th>
+            <th scope="col">Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -19,6 +20,9 @@
               <tr>
                 <td><?= $no++; ?></td>
                 <td><?= $key['saran_perubahan']; ?></td>
+                <td>
+                  <a href="<?= base_url('admin/saran_perubahan/hapus/' . $key['id_saran']); ?>" class="btn btn-danger">Hapus</a>
+                </td>
               </tr>
             <?php }
           ?>
