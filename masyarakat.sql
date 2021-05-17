@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Bulan Mei 2021 pada 14.49
+-- Waktu pembuatan: 17 Bulan Mei 2021 pada 14.26
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -70,16 +70,16 @@ INSERT INTO `berita` (`id_berita`, `judul`, `isi`, `tanggal`, `foto`) VALUES
 
 CREATE TABLE `saran` (
   `id_saran` int(11) NOT NULL,
-  `saran_perubahan` text NOT NULL
+  `saran_perubahan` text NOT NULL,
+  `foto` varchar(191) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `saran`
 --
 
-INSERT INTO `saran` (`id_saran`, `saran_perubahan`) VALUES
-(2, 'fotonya salah'),
-(3, 'a');
+INSERT INTO `saran` (`id_saran`, `saran_perubahan`, `foto`) VALUES
+(2, 'fotonya salah', NULL);
 
 -- --------------------------------------------------------
 
@@ -110,7 +110,7 @@ CREATE TABLE `warga` (
   `id_warga` int(11) NOT NULL,
   `nik` varchar(191) NOT NULL,
   `nama` varchar(191) NOT NULL,
-  `foto` varchar(191) NOT NULL,
+  `foto` varchar(191) DEFAULT NULL,
   `tempat_lahir` varchar(191) NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `alamat` text NOT NULL,
@@ -181,7 +181,7 @@ ALTER TABLE `berita`
 -- AUTO_INCREMENT untuk tabel `saran`
 --
 ALTER TABLE `saran`
-  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `warga`

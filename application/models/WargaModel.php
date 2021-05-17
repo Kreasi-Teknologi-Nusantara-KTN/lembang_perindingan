@@ -22,8 +22,7 @@ class WargaModel extends CI_Model {
       'tempat_lahir'      => $this->input->post('tempat_lahir'),
       'tanggal_lahir'     => $this->input->post('tanggal_lahir'),
       'alamat'            => $this->input->post('alamat'),
-      'status_perkawinan' => $this->input->post('status_perkawinan'),
-      'foto'              => $this->upload->data('file_name')
+      'status_perkawinan' => $this->input->post('status_perkawinan')
     ]);
 	}
   
