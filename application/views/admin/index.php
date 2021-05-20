@@ -88,7 +88,7 @@
           $('#nama').val(name);
         }
         if (email !== null) {
-          $('#email').val(email);
+          $('#emailAdmin').val(email);
         }
         if (photoUrl !== null) {
           let src = '<?= base_url(); ?>assets/' + photoUrl;
@@ -252,7 +252,7 @@
 
               <a class="nav-link" href="<?= base_url(); ?>admin/setting.html"><i class="fa fa-cog"></i> Settings</a>
 
-              <a class="nav-link" href="#"><i class="fa fa-power-off"></i> Logout</a>
+              <a class="nav-link" href="#" onclick="logout()"><i class="fa fa-power-off"></i> Logout</a>
             </div>
           </div>
 

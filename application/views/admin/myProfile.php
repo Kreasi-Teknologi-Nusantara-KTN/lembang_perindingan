@@ -14,7 +14,7 @@
       </div>
       <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" class="form-control" id="email" <?= $edit == true ? '' : 'readonly' ; ?> name="email">
+        <input type="text" class="form-control" id="emailAdmin" <?= $edit == true ? '' : 'readonly' ; ?> name="email">
       </div>
       <?php
         if ($edit) { ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 17 Bulan Mei 2021 pada 14.26
+-- Waktu pembuatan: 21 Bulan Mei 2021 pada 01.33
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -79,7 +79,7 @@ CREATE TABLE `saran` (
 --
 
 INSERT INTO `saran` (`id_saran`, `saran_perubahan`, `foto`) VALUES
-(2, 'fotonya salah', NULL);
+(4, 'a', 'Foto_Wisuda4.jpg');
 
 -- --------------------------------------------------------
 
@@ -124,8 +124,7 @@ CREATE TABLE `warga` (
 --
 
 INSERT INTO `warga` (`id_warga`, `nik`, `nama`, `foto`, `tempat_lahir`, `tanggal_lahir`, `alamat`, `status_perkawinan`, `status_kematian`, `tanggal_kematian`) VALUES
-(8, '3213012611980001', 'M. Bagas Setia Permana', 'Foto_Wisuda2.jpg', 'Bandung', '1998-11-26', 'Kp. Pasir Gombong Rt. 15/07 Desa Sukamandi Kec. Sagalaherang Kab. Subang ', 'belum_menikah', '0', '0000-00-00'),
-(9, '2141434', 'a', 'pancasila.PNG', 'Bandung', '2021-05-09', 'a', 'menikah', '1', '2021-05-07');
+(10, '3213012611980001', 'M. Bagas Setia Permana', NULL, 'Bandung', '1998-11-26', 'Kp. Pasir Gombong Desa Sukamandi Kecamatan Sagalaherang Kabupaten Subang', 'belum_menikah', '0', '0000-00-00');
 
 --
 -- Indexes for dumped tables
@@ -181,13 +180,13 @@ ALTER TABLE `berita`
 -- AUTO_INCREMENT untuk tabel `saran`
 --
 ALTER TABLE `saran`
-  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `warga`
 --
 ALTER TABLE `warga`
-  MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_warga` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
