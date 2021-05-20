@@ -5,11 +5,12 @@
   <div class="card-body">
     <?php if ($this->session->pesan) echo $this->session->pesan; ?>
     <div class="table-responsive">
-      <table class="table" id="bootstrap-data-table-export">
+      <table class="table" id="bootstrap-data-table-export" width="100%">
         <thead>
           <tr>
             <th scope="col">#</th>
             <th scope="col">Saran</th>
+            <th scope="col">Foto</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
@@ -18,9 +19,10 @@
             $no = 1;
             foreach ($saran as $key) { ?>
               <tr>
-                <td><?= $no++; ?></td>
-                <td><?= $key['saran_perubahan']; ?></td>
-                <td>
+                <td width="5%"><?= $no++; ?></td>
+                <td width="30%"><?= $key['saran_perubahan']; ?></td>
+                <td width="35%"><img src="<?= base_url('assets/' . $key['foto']); ?>" alt="" width="50%"></td>
+                <td width="30%">
                   <a href="<?= base_url('admin/saran_perubahan/hapus/' . $key['id_saran']); ?>" class="btn btn-danger">Hapus</a>
                 </td>
               </tr>
