@@ -3,6 +3,7 @@
     Saran Perubahan
   </div>
   <div class="card-body">
+    <?= $this->session->pesan ? $this->session->pesan : '' ; ?>
     <form action="<?= base_url('warga/saran_perubahan.html'); ?>" method="post" enctype="multipart/form-data">
       <div class="form-group">
         <label for="exampleInputEmail1">Saran Perubahan</label>
