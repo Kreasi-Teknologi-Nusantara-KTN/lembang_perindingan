@@ -21,7 +21,11 @@
               <tr>
                 <td width="5%"><?= $no++; ?></td>
                 <td width="30%"><?= $key['saran_perubahan']; ?></td>
-                <td width="35%"><img src="<?= base_url('assets/' . $key['foto']); ?>" alt="" width="50%"></td>
+                <td width="35%">
+                  <!-- <div class="zoom"> -->
+                    <img src="<?= base_url('assets/' . $key['foto']); ?>" alt="" width="25%" id="image-link">
+                  <!-- </div> -->
+                </td>
                 <td width="30%">
                   <a href="<?= base_url('admin/saran_perubahan/hapus/' . $key['id_saran']); ?>" class="btn btn-danger">Hapus</a>
                 </td>

@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css">
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="<?= base_url(); ?>assets/magnific-popup.css">
   
   <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-analytics.js"></script>
@@ -58,6 +59,7 @@
   <script src="<?= base_url(); ?>vendors/jszip/dist/jszip.min.js"></script>
   <script src="<?= base_url(); ?>vendors/pdfmake/build/pdfmake.min.js"></script>
   <script src="<?= base_url(); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
+  <script src="<?= base_url(); ?>assets/jquery.magnific-popup.js"></script>
   <script>
 
     var firebaseConfig  = {
@@ -160,6 +162,17 @@
         );
       }
     }
+    
+    $(document).ready(function() {
+      $('#image-link').magnificPopup({
+        items: [
+          {
+            src: $('#image-link')[0].currentSrc
+          },
+        ], 
+        type:'image'
+      });
+    });
   </script>
 
 </head>
