@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+require_once("./vendor/autoload.php");
+use Dompdf\Dompdf;
+use Dompdf\Options;
+
 class Warga extends CI_Controller {
   
 	public function index()
@@ -177,5 +181,23 @@ class Warga extends CI_Controller {
       </div>
     ');
     redirect('admin/data_kematian.html');
+  }
+
+  public function cetak()
+  {
+    $data['warga']  = $this->WargaModel->getAll();
+    ob_start();
+      $this->load->view('admin/warga/pdf', $data);
+      $html = ob_get_contents();
+    ob_end_clean();
+    ob_clean();
+    $filename   = uniqid();
+    $options  	= new Options();
+    $options->set('isRemoteEnabled', TRUE);
+    $dompdf = new Dompdf($options);
+    $dompdf->loadHtml($html);
+    $dompdf->setPaper('legal', 'portrait');
+    $dompdf->render();
+    $dompdf->stream($filename, array("Attachment" => 0) );
   }
 }

@@ -1,5 +1,6 @@
 <a class="btn btn-success mb-3" href="<?= base_url(); ?>admin/warga/tambah.html">Tambah</a>
 <button class="btn btn-success mb-3"type="button" data-toggle="modal" data-target="#exampleModal">Upload</button>
+<a class="btn btn-success mb-3" href="<?= base_url(); ?>admin/warga/cetak.html" target="_blank">Cetak</a>
 <div class="form-inline">
   <form class="search-form" action="<?= base_url(); ?>admin/warga/cari.html" method="get">
     <input class="form-control mr-sm-2 mb-3" type="text" placeholder="Search ..." aria-label="Search" name="nama">
