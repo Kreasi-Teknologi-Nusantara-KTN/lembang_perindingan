@@ -20,7 +20,6 @@
             <th scope="col">Tempat, Tanggal Lahir</th>
             <th scope="col">Alamat</th>
             <th scope="col">Status Perkawinan</th>
-            <th scope="col">Foto</th>
           </tr>
         </thead>
         <tbody>
@@ -49,7 +48,6 @@
                     }
                   ?>
                 </td>
-                <td><img src="<?= base_url('assets/' . $key['foto']); ?>" alt="" width="50%"></td>
               </tr>
             <?php }
           ?>
