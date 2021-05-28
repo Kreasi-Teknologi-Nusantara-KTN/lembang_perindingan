@@ -27,6 +27,7 @@
                   <!-- </div> -->
                 </td>
                 <td width="30%">
+                  <a href="<?= base_url('assets/' . $key['foto']); ?>" class="btn btn-success" download>Download Gambar</a>
                   <a href="<?= base_url('admin/saran_perubahan/hapus/' . $key['id_saran']); ?>" class="btn btn-danger">Hapus</a>
                 </td>
               </tr>
