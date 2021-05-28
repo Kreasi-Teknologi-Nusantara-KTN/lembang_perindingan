@@ -16,6 +16,7 @@ $route['admin/warga/cetak.html']              = 'Admin/Warga/cetak';
 $route['admin/saran_perubahan.html']          = 'Admin/Admin/saranPerubahanData';
 $route['admin/saran_perubahan/hapus/(:any)']  = 'Admin/Admin/hapusSaranPerubahanData/$1';
 $route['admin/bantuan/(:any)']                = 'Admin/Bantuan/index/$1';
+$route['admin/bantuan/(:any)/cetak.html']     = 'Admin/Bantuan/cetak/$1';
 $route['admin/tambah_bantuan.html']           = 'Admin/Bantuan/tambah';
 $route['admin/hapus_bantuan/(:any)']          = 'Admin/Bantuan/hapus/$1';
 $route['admin/edit_bantuan/(:any)']           = 'Admin/Bantuan/edit/$1';
