@@ -35,11 +35,14 @@ $route['admin/my_profile/edit.html']          = 'Admin/Admin/myProfile/edit';
 $route['admin/upload.html']                   = 'Admin/Admin/uploadFoto';
 $route['admin/setting.html']                  = 'Admin/Admin/setting';
 
-$route['warga.html']                    = 'Warga';
-$route['warga/cari.html']               = 'Warga/cari';
-$route['warga/data_kematian.html']      = 'Warga/dataKematian';
-$route['warga/saran_perubahan.html']    = 'Warga/saranPerubahan';
+$route['warga.html']                      = 'Warga';
+$route['warga/cari.html']                 = 'Warga/cari';
+$route['warga/data_kematian.html']        = 'Warga/dataKematian';
+$route['warga/data_kematian/cetak.html']  = 'Warga/cetakDataKematian';
+$route['warga/saran_perubahan.html']      = 'Warga/saranPerubahan';
+$route['warga/cetak.html']                = 'Warga/cetak';
 
-$route['bantuan/(:any)']    = 'Bantuan/index/$1';
-$route['visi_misi.html']    = 'Warga/visiMisi';
-$route['berita_desa.html']  = 'Warga/beritaDesa';
+$route['bantuan/(:any)']            = 'Bantuan/index/$1';
+$route['bantuan/(:any)/cetak.html'] = 'Bantuan/cetak/$1';
+$route['visi_misi.html']            = 'Warga/visiMisi';
+$route['berita_desa.html']          = 'Warga/beritaDesa';

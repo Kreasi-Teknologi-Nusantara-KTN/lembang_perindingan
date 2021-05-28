@@ -1,3 +1,4 @@
+<a class="btn btn-success mb-3" href="<?= base_url('bantuan/' . $jenisBantuan . '/cetak.html'); ?>" target="_blank">Cetak</a>
 <div class="card">
   <div class="card-header">
     Data Bantuan <?= strtoupper($jenisBantuan); ?>

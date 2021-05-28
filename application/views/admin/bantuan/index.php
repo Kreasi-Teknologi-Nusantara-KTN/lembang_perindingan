@@ -1,5 +1,5 @@
 <button class="btn btn-success mb-3"type="button" data-toggle="modal" data-target="#exampleModal">Tambah</button>
-<a class="btn btn-success mb-3" href="<?= base_url(); ?>admin/bantuan/pkh/cetak.html" target="_blank">Cetak</a>
+<a class="btn btn-success mb-3" href="<?= base_url('admin/bantuan/' . $jenisBantuan . '/cetak.html'); ?>" target="_blank">Cetak</a>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
