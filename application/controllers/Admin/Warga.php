@@ -183,6 +183,24 @@ class Warga extends CI_Controller {
     redirect('admin/data_kematian.html');
   }
 
+  public function cetakDataKematian()
+  {
+    $data['kematian'] = $this->WargaModel->getDataKematian();
+    ob_start();
+      $this->load->view('admin/pdf_kematian', $data);
+      $html = ob_get_contents();
+    ob_end_clean();
+    ob_clean();
+    $filename   = uniqid();
+    $options  	= new Options();
+    $options->set('isRemoteEnabled', TRUE);
+    $dompdf = new Dompdf($options);
+    $dompdf->loadHtml($html);
+    $dompdf->setPaper('legal', 'portrait');
+    $dompdf->render();
+    $dompdf->stream($filename, array("Attachment" => 0) );
+  }
+
   public function cetak()
   {
     $data['warga']  = $this->WargaModel->getAll();

@@ -24,6 +24,7 @@ $route['admin/visi_misi/edit.html']           = 'Admin/Admin/editVisiMisi';
 $route['admin/data_kematian.html']            = 'Admin/Warga/dataKematian';
 $route['admin/data_kematian/hapus/(:any)']    = 'Admin/Warga/hapusDataKematian/$1';
 $route['admin/data_kematian/edit/(:any)']     = 'Admin/Warga/editDataKematian/$1';
+$route['admin/data_kematian/cetak.html']      = 'Admin/Warga/cetakDataKematian';
 $route['admin/berita_desa.html']              = 'Admin/BeritaDesa';
 $route['admin/berita_desa/tambah.html']       = 'Admin/BeritaDesa/tambah';
 $route['admin/berita_desa/edit/(:any)']       = 'Admin/BeritaDesa/edit/$1';
