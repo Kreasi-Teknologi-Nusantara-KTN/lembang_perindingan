@@ -1,59 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
-  
-  
-  <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-app.js"></script>
-
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-analytics.js"></script>
-
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
-
-  <script>
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    var firebaseConfig = {
-      apiKey: "AIzaSyBhKxRqTiw7Hh-mZUY0vgYaWp7CZwHFVuY",
-      authDomain: "sistem-masyarakat.firebaseapp.com",
-      projectId: "sistem-masyarakat",
-      storageBucket: "sistem-masyarakat.appspot.com",
-      messagingSenderId: "943285463148",
-      appId: "1:943285463148:web:06a0341fdc7becad555049",
-      measurementId: "G-4BPPQZ0FTV"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-  
-    // Initialize the FirebaseUI Widget using Firebase.
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (!user) {
-        var ui = new firebaseui.auth.AuthUI(firebase.auth());
-        ui.start('#firebaseui-auth-container', {
-          signInSuccessUrl: '<?= base_url(); ?>admin.html',
-          signInOptions: [
-            firebase.auth.EmailAuthProvider.PROVIDER_ID
-          ],
-          // Other config options...
-        });
-      } else {
-        window.location.href = "<?= base_url(); ?>admin.html";
-      }
-    });
-  </script>
+  <link rel="shortcut icon" href="assets/img/bpslogo.png" type="image/x-icon" />
+  <title>Login</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- icheck bootstrap -->
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/icheck-bootstrap.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="<?= base_url(); ?>vendors/font-awesome/css/font-awesome.min.css">
+  <style type="text/css">
+    .login-box{
+      position  : relative;
+      top       : 150px;
+      border    : 9px ;
+      margin    : auto;
+    }
+  </style>
 </head>
 <body>
-  <!-- The surrounding HTML is left untouched by FirebaseUI.
-  Your app may use that space for branding, controls and other customizations.-->
-  <div id="firebaseui-auth-container"></div>
+  <div class="login-box">
+    <div class="card">
+      <div class="card-body login-card-body">
+        <div class="login-logo">
+          <a href="<?php echo base_url();?>assets/index2.html"><font face = "tahoma">SISTEM MASYARAKAT</font></a>
+          <hr>
+        </div>
+        <p class="login-box-msg">LOGIN</p>
+        <form method = "POST" action="<?php echo base_url(); ?>login">
+          <div class="input-group mb-3">
+            <input type="email" class="form-control" name="email" placeholder="Email" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-envelope"></span>
+              </div>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <input type="password" class="form-control" name="password" placeholder="Password" required>
+            <div class="input-group-append">
+              <div class="input-group-text">
+                <span class="fas fa-lock"></span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8"></div>
+            <div class="col-4">
+              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="<?php echo base_url();?>assets/jquery.min.js"></script>
+  <!-- Bootstrap 4 -->
+  <script src="<?php echo base_url();?>assets/bootstrap.bundle.min.js"></script>
+  <!-- AdminLTE App -->
+  <script src="<?php echo base_url();?>assets/adminlte.min.js"></script>
 </body>
 </html>

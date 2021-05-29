@@ -9,29 +9,35 @@
 </ul>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" class="form-control" id="password" placeholder="Masukan Password" name="password" required>
-    </div>
-    <div class="form-group">
-      <label for="passwordKonfirmasi">Konfirmasi Password</label>
-      <input type="password" class="form-control" id="passwordKonfirmasi" placeholder="Masukan Konfirmasi Password" name="password" required>
-    </div>
-    <button type="button" class="btn btn-primary" onclick="gantiPassword()">Simpan</button>
+    <?= $this->session->pesan ? $this->session->pesan : '' ; ?>
+    <form action="<?= base_url(); ?>admin/ganti_password.html" method="post">
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Masukan Password" name="password" required>
+      </div>
+      <div class="form-group">
+        <label for="passwordKonfirmasi">Konfirmasi Password</label>
+        <input type="password" class="form-control" id="passwordKonfirmasi" placeholder="Masukan Konfirmasi Password" name="passwordKonfirmasi" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Simpan</button>
+    </form>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" id="email" placeholder="Masukan Email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="passwordAdmin">Password</label>
-      <input type="password" class="form-control" id="passwordAdmin" placeholder="Masukan Password" name="passwordAdmin" required>
-    </div>
-    <div class="form-group">
-      <label for="passwordKonfirmasiAdmin">Konfirmasi Password</label>
-      <input type="password" class="form-control" id="passwordKonfirmasiAdmin" placeholder="Masukan Konfirmasi Password" name="passwordAdmin" required>
-    </div>
-    <button type="button" class="btn btn-primary" onclick="tambahAdmin()">Simpan</button>
+    <?= $this->session->pesan1 ? $this->session->pesan1 : '' ; ?>
+    <form action="<?= base_url(); ?>admin/tambah_admin.html" method="post">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Masukan Email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="passwordAdmin">Password</label>
+        <input type="password" class="form-control" id="passwordAdmin" placeholder="Masukan Password" name="passwordAdmin" required>
+      </div>
+      <div class="form-group">
+        <label for="passwordKonfirmasiAdmin">Konfirmasi Password</label>
+        <input type="password" class="form-control" id="passwordKonfirmasiAdmin" placeholder="Masukan Konfirmasi Password" name="passwordAdminKonfirmasi" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Simpan</button>
+    </form>
   </div>
 </div>

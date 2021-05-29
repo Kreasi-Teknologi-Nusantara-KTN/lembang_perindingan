@@ -17,6 +17,45 @@ class Admin extends CI_Controller {
 	public function myProfile($edit = null)
 	{
     if ($edit) {
+      if ($this->input->post()) {
+        if ($_FILES['foto']['name'] == '') {
+          $foto = $this->session->foto;
+        } else {
+          if (file_exists('assets/' . $this->session->foto)) {
+            unlink('assets/' . $this->session->foto);
+          }
+
+          $config['upload_path']    = './assets';
+          $config['allowed_types']  = 'jpg|png|jpeg';
+  
+          $this->upload->initialize($config);
+  
+          if (!$this->upload->do_upload('foto'))
+          {
+            print_r($this->upload->display_errors());
+            die();
+          } else {
+            $foto = $this->upload->data('file_name');
+          }
+        }
+        $this->db->update('user', [
+          'foto'  => $foto,
+          'nama'  => $this->input->post('nama'),
+          'email' => $this->input->post('email')
+        ], ['id_user' => $this->session->id_user]);
+
+        $this->session->set_userdata([
+          'email'     => $this->input->post('email'),
+          'foto'      => $foto,
+          'nama'      => $this->input->post('nama')
+        ]);
+        $this->session->set_flashdata('pesan', '
+          <div class="alert alert-success" role="alert">
+            Data berhasil diedit
+          </div>
+        ');
+        redirect('admin/my_profile.html');
+      }
       $data['edit'] = true;
     } else {
       $data['edit'] = null;
@@ -100,5 +139,51 @@ class Admin extends CI_Controller {
   {
     $data['konten'] = 'admin/setting';
 		$this->load->view('admin/index', $data);
+  }
+
+  public function gantiPassword()
+  {
+    $this->form_validation->set_rules('password', 'Password', 'required');
+    $this->form_validation->set_rules('passwordKonfirmasi', 'Password Konfirmas', 'required|matches[password]');
+    if ($this->form_validation->run() !== FALSE) {
+      $this->db->update('user', ['password' => $this->input->post('password')], ['id_user'  => $this->session->id_user]);
+      $this->session->set_flashdata('pesan', '
+        <div class="alert alert-success" role="alert">
+          Password berhasil diganti
+        </div>
+      ');
+    } else {
+      $this->session->set_flashdata('pesan', '
+        <div class="alert alert-danger" role="alert">
+          Password tidak sama
+        </div>
+      ');
+    }
+    redirect('admin/setting.html');
+  }
+
+  public function tambahAdmin()
+  {
+    $this->form_validation->set_rules('email', 'Email', 'required');
+    $this->form_validation->set_rules('passwordAdmin', 'Password', 'required');
+    $this->form_validation->set_rules('passwordAdminKonfirmasi', 'Password Konfirmasi', 'required|matches[passwordAdmin]');
+    if ($this->form_validation->run() !== FALSE) {
+      $this->db->insert('user', [
+        'email'     => $this->input->post('email'),
+        'password'  => $this->input->post('passwordAdmin')
+      ]);
+      $this->session->set_flashdata('pesan', '
+        <div class="alert alert-success" role="alert">
+          Berhasil tambah admin
+        </div>
+      ');
+    } else {
+      $this->session->set_flashdata('pesan', '
+        <div class="alert alert-danger" role="alert">'
+          . validation_errors() . 
+        '</div>
+      ');
+    }
+    redirect('admin/setting.html');
   }
 }

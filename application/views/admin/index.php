@@ -31,12 +31,6 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="<?= base_url(); ?>assets/magnific-popup.css">
   
-  <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-analytics.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.4.0/firebase-firestore.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
-  
   <script src="<?= base_url(); ?>vendors/jquery/dist/jquery.min.js"></script>
   <script src="<?= base_url(); ?>vendors/popper.js/dist/umd/popper.min.js"></script>
   <script src="<?= base_url(); ?>vendors/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -61,107 +55,12 @@
   <script src="<?= base_url(); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
   <script src="<?= base_url(); ?>assets/jquery.magnific-popup.js"></script>
   <script>
-
-    var firebaseConfig  = {
-      apiKey: "AIzaSyBhKxRqTiw7Hh-mZUY0vgYaWp7CZwHFVuY",
-      authDomain: "sistem-masyarakat.firebaseapp.com",
-      projectId: "sistem-masyarakat",
-      storageBucket: "sistem-masyarakat.appspot.com",
-      messagingSenderId: "943285463148",
-      appId: "1:943285463148:web:06a0341fdc7becad555049",
-      measurementId: "G-4BPPQZ0FTV"
-    };
-    firebase.initializeApp(firebaseConfig);
-    firebase.analytics();
-    firebase.auth().onAuthStateChanged(function(user) {
-      if (!user) {
-        window.location.href = "<?= base_url(); ?>";
-      }
-
-      // if ('<?= $this->uri->segment('2'); ?>' == 'my_profile.html' || '<?= $this->uri->segment('2'); ?>' == 'my_profile') {
-        var user  = firebase.auth().currentUser;
-        var name, email, photoUrl, uid, emailVerified;
-        name          = user.displayName;
-        email         = user.email;
-        photoUrl      = user.photoURL;
-        emailVerified = user.emailVerified;
-        uid           = user.uid;
-        if (name !== null) {
-          $('#nama').val(name);
-        }
-        if (email !== null) {
-          $('#emailAdmin').val(email);
-        }
-        if (photoUrl !== null) {
-          let src = '<?= base_url(); ?>assets/' + photoUrl;
-          $('.photoUrl').attr('src', src);
-        }
-      // }
-    });
-    
-    function logout() {
-      firebase.auth().signOut().then(() => {
-        window.location.href = "<?= base_url(); ?>";
-      }).catch((error) => {
-        // An error happened.
-      });
-    }
     
     ClassicEditor
       .create( document.querySelector( '#editor' ) )
       .catch( error => {
         console.error( error );
     } );
-
-    function gantiPassword() {
-      let user                = firebase.auth().currentUser;
-      let password            = $('#password').val();
-      let passwordKonfirmasi  = $('#passwordKonfirmasi').val();
-      if (password == passwordKonfirmasi) {
-        user.updatePassword(password).then(function() {
-          $('#alert').html(
-            `<div class="alert alert-success">Berhasil</div>`
-          );
-          $('#password').val('');
-          $('#passwordKonfirmasi').val('');
-        }).catch(function(error) {
-          $('#alert').html(
-            `<div class="alert alert-danger">Gagal</div>`
-          );
-        });
-      } else {
-        $('#alert').html(
-          `<div class="alert alert-danger">Password konfirmasi tidak sama</div>`
-        );
-      }
-    }
-
-    function tambahAdmin() {
-      let user                = firebase.auth().currentUser;
-      let password            = $('#passwordAdmin').val();
-      let passwordKonfirmasi  = $('#passwordKonfirmasiAdmin').val();
-      let email               = $('#email').val();
-      if (password == passwordKonfirmasi) {
-        firebase.auth().createUserWithEmailAndPassword(email, password)
-        .then(() => {
-          $('#alert').html(
-            `<div class="alert alert-success">Berhasil</div>`
-          );
-          $('#passwordAdmin').val('');
-          $('#passwordKonfirmasiAdmin').val('');
-          $('#email').val('');
-        })
-        .catch((error) => {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          console.log(errorCode, errorMessage);
-        });
-      } else {
-        $('#alert').html(
-          `<div class="alert alert-danger">Password konfirmasi tidak sama</div>`
-        );
-      }
-    }
     
     $(document).ready(function() {
       $('#image-link').magnificPopup({
@@ -230,7 +129,7 @@
           </li>
           <h3 class="menu-title"></h3>
           <li>
-            <a onclick="logout()"> <i class="menu-icon fa fa-sign-out"></i>Logout </a>
+            <a href="<?= base_url(); ?>logout"> <i class="menu-icon fa fa-sign-out"></i>Logout </a>
           </li>
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -257,7 +156,7 @@
         <div class="col-sm-5">
           <div class="user-area dropdown float-right">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img class="user-avatar rounded-circle photoUrl" src="" alt="User Avatar">
+              <img class="user-avatar rounded-circle" src="<?= base_url('assets/' . $this->session->foto); ?>" alt="User Avatar">
             </a>
 
             <div class="user-menu dropdown-menu">
@@ -265,7 +164,7 @@
 
               <a class="nav-link" href="<?= base_url(); ?>admin/setting.html"><i class="fa fa-cog"></i> Settings</a>
 
-              <a class="nav-link" href="#" onclick="logout()"><i class="fa fa-power-off"></i> Logout</a>
+              <a class="nav-link" href="<?= base_url(); ?>logout"><i class="fa fa-power-off"></i> Logout</a>
             </div>
           </div>
 
