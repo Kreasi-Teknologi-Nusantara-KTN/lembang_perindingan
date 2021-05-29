@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Bulan Mei 2021 pada 01.33
+-- Waktu pembuatan: 29 Bulan Mei 2021 pada 06.55
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -84,6 +84,28 @@ INSERT INTO `saran` (`id_saran`, `saran_perubahan`, `foto`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id_user` int(11) NOT NULL,
+  `password` varchar(191) NOT NULL,
+  `foto` varchar(191) NOT NULL,
+  `nama` varchar(191) NOT NULL,
+  `email` varchar(191) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id_user`, `password`, `foto`, `nama`, `email`) VALUES
+(1, '12345678', 'kocheng.jpg', 'M. Bagas Setia Permana', 'bagassetia271@gmail.com'),
+(2, '12345678', '', '', 'setiapermanabagas@gmail');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `visimisi`
 --
 
@@ -149,6 +171,12 @@ ALTER TABLE `saran`
   ADD PRIMARY KEY (`id_saran`);
 
 --
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
 -- Indeks untuk tabel `visimisi`
 --
 ALTER TABLE `visimisi`
@@ -181,6 +209,12 @@ ALTER TABLE `berita`
 --
 ALTER TABLE `saran`
   MODIFY `id_saran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `warga`
