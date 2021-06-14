@@ -55,3 +55,27 @@
     </div>
   </div>
 </div>
+<div class="col-md-2"></div>
+<div class="col-md-4">
+  <div class="card">
+    <div class="card-header bg-success">
+      <strong class="card-title text-light">Saran Perubahan Data</strong>
+      <strong class="text-light pull-right"></strong>
+    </div>
+    <div class="card-body text-white bg-success">
+      <p class="card-text text-light"><a href="<?= base_url(); ?>admin/saran_perubahan.html" class="text-white">Lihat Saran Perubahan</a></p>
+    </div>
+  </div>
+</div>
+<div class="col-md-4">
+  <div class="card">
+    <div class="card-header bg-success">
+      <strong class="card-title text-light">Visi dan Misi</strong>
+      <strong class="text-light pull-right"></strong>
+    </div>
+    <div class="card-body text-white bg-success">
+      <p class="card-text text-light"><a href="<?= base_url(); ?>admin/visi_misi.html" class="text-white">Lihat Detail</a></p>
+    </div>
+  </div>
+</div>
+<div class="col-md-2"></div>

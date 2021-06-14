@@ -77,11 +77,7 @@
 </head>
 
 <body>
-
-
-  <!-- Left Panel -->
-
-  <aside id="left-panel" class="left-panel">
+  <!-- <aside id="left-panel" class="left-panel">
     <nav class="navbar navbar-expand-sm navbar-default">
 
       <div class="navbar-header">
@@ -89,10 +85,8 @@
           <i class="fa fa-bars"></i>
         </button>
         <a class="navbar-brand" href="./">
-          <!-- <img src="images/logo.png" alt="Logo"> -->
         </a>
         <a class="navbar-brand hidden" href="./">
-          <!-- <img src="images/logo2.png" alt="Logo"> -->
         </a>
       </div>
 
@@ -132,9 +126,9 @@
             <a href="<?= base_url(); ?>logout"> <i class="menu-icon fa fa-sign-out"></i>Logout </a>
           </li>
         </ul>
-      </div><!-- /.navbar-collapse -->
+      </div>
     </nav>
-  </aside><!-- /#left-panel -->
+  </aside> -->
 
   <!-- Left Panel -->
 
@@ -148,9 +142,9 @@
       <div class="header-menu">
 
         <div class="col-sm-7">
-          <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
+          <!-- <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
           <div class="header-left">
-          </div>
+          </div> -->
         </div>
 
         <div class="col-sm-5">
