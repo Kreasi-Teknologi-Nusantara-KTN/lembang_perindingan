@@ -94,13 +94,12 @@
     <div class="breadcrumbs">
         <div class="col-sm-4">
             <div class="page-header float-left">
-                <div class="page-title">
-                </div>
+              <a href="<?= base_url(); ?>" class="btn btn-success mt-4 mb-4">Home</a>
             </div>
         </div>
         <div class="col-sm-8">
             <div class="page-header float-right">
-              <a href="<?= base_url(); ?>login" class="btn btn-success">Login</a>
+              <a href="<?= base_url(); ?>login" class="btn btn-success mt-4 mb-4">Login</a>
             </div>
         </div>
     </div>
