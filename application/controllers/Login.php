@@ -19,6 +19,13 @@ class Login extends CI_Controller {
           'id_user'   => $data['id_user']
         ]);
         redirect('admin.html');
+      } else {
+        $this->session->set_userdata([
+          'pesan' => '<div class="alert alert-danger" role="alert">
+            Username atau password salah
+          </div>'
+        ]);
+        redirect('login');
       }
     }
 		$this->load->view('login');

@@ -34,6 +34,7 @@
           <hr>
         </div>
         <p class="login-box-msg">LOGIN</p>
+        <?= $this->session->pesan ? $this->session->pesan : ''; ?>
         <form method = "POST" action="<?php echo base_url(); ?>login">
           <div class="input-group mb-3">
             <input type="email" class="form-control" name="email" placeholder="Email" required>
