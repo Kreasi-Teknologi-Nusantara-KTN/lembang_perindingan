@@ -22,14 +22,15 @@
   <link rel="stylesheet" href="<?= base_url(); ?>vendors/flag-icon-css/css/flag-icon.min.css">
   <link rel="stylesheet" href="<?= base_url(); ?>vendors/selectFX/css/cs-skin-elastic.css">
   <link rel="stylesheet" href="<?= base_url(); ?>vendors/jqvmap/dist/jqvmap.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
+  <!-- <link rel="stylesheet" href="<?= base_url(); ?>vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url(); ?>vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css"> -->
 
 
   <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css">
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="<?= base_url(); ?>assets/magnific-popup.css">
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
   
   <script src="<?= base_url(); ?>vendors/jquery/dist/jquery.min.js"></script>
   <script src="<?= base_url(); ?>vendors/popper.js/dist/umd/popper.min.js"></script>
@@ -42,35 +43,26 @@
   <script src="<?= base_url(); ?>vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
   <script src="<?= base_url(); ?>vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
   <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+  <!-- <script src="<?= base_url(); ?>vendors/datatables.net/js/jquery.dataTables.min.js"></script>
   <script src="<?= base_url(); ?>vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
   <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
   <script src="<?= base_url(); ?>vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
   <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
   <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
   <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/init-scripts/data-table/datatables-init.js"></script>
+  <script src="<?= base_url(); ?>assets/js/init-scripts/data-table/datatables-init.js"></script> -->
   <script src="<?= base_url(); ?>vendors/jszip/dist/jszip.min.js"></script>
   <script src="<?= base_url(); ?>vendors/pdfmake/build/pdfmake.min.js"></script>
   <script src="<?= base_url(); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
   <script src="<?= base_url(); ?>assets/jquery.magnific-popup.js"></script>
+  <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
   <script>
     
-    ClassicEditor
-      .create( document.querySelector( '#editor' ) )
-      .catch( error => {
-        console.error( error );
-    } );
+    ClassicEditor.create( document.querySelector( '#editor' ) );
     
     $(document).ready(function() {
-      $('#image-link').magnificPopup({
-        items: [
-          {
-            src: $('#image-link')[0].currentSrc
-          },
-        ], 
-        type:'image'
-      });
+
+      $('.table').DataTable();
     });
   </script>
 

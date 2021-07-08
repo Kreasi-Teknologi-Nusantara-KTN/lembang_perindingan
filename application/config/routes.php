@@ -36,6 +36,10 @@ $route['admin/upload.html']                   = 'Admin/Admin/uploadFoto';
 $route['admin/setting.html']                  = 'Admin/Admin/setting';;
 $route['admin/ganti_password.html']           = 'Admin/Admin/gantiPassword';
 $route['admin/tambah_admin.html']             = 'Admin/Admin/tambahAdmin';
+$route['admin/vaksin_covid']                  = 'Admin/Vaksin';
+$route['admin/vaksin_covid/tambah']           = 'Admin/Vaksin/tambah';
+$route['admin/vaksin_covid/edit/(:any)']      = 'Admin/Vaksin/edit/$1';
+$route['admin/vaksin_covid/hapus/(:any)']     = 'Admin/Vaksin/hapus/$1';
 
 $route['warga.html']                      = 'Warga';
 $route['warga/cari.html']                 = 'Warga/cari';

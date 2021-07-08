@@ -106,4 +106,41 @@ class WargaModel extends CI_Model {
     $this->db->like('nama', $this->input->get('nama'));
     return $this->db->get('warga')->result_array();
   }
+
+  public function getVaksinCovid()
+  {
+    $this->db->join('warga', 'vaksin_covid.id_warga = warga.id_warga');
+    return $this->db->get('vaksin_covid')->result_array();
+  }
+
+  public function tambahVaksin()
+  {
+    $this->db->insert('vaksin_covid', [
+      'id_warga'  => $this->input->post('id_warga'),
+      'tanggal'   => $this->input->post('tanggal')
+    ]);
+  }
+
+  public function editVaksin($id_vaksin)
+  {
+    $data = $this->db->get_where('vaksin_covid', ['id_vaksin' => $id_vaksin])->row_array();
+    switch ($data['status']) {
+      case 'sudah':
+        $status = 'belum';
+        break;
+      case 'belum':
+        $status = 'sudah';
+        break;
+      
+      default:
+        # code...
+        break;
+    }
+    $this->db->update('vaksin_covid', ['status' => $status], ['id_vaksin' => $id_vaksin]);
+  }
+
+  public function hapusVaksin($id_vaksin)
+  {
+    $this->db->delete('vaksin_covid', ['id_vaksin' => $id_vaksin]);
+  }
 }

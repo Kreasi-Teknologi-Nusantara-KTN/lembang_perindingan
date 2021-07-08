@@ -1,4 +1,3 @@
-<div class="col-md-2"></div>
 <div class="col-md-4">
   <div class="card">
     <div class="card-header bg-success">
@@ -6,7 +5,7 @@
       <strong class="text-light pull-right"><?= $jumlah_penduduk; ?></strong>
     </div>
     <div class="card-body text-white bg-success">
-      <p class="card-text text-light"><a href="<?= base_url(); ?>warga.html" class="text-white">Lihat Detail</a></p>
+      <p class="card-text text-light"><a href="<?= base_url(); ?>admin/warga.html" class="text-white">Lihat Detail</a></p>
     </div>
   </div>
 </div>
@@ -17,11 +16,21 @@
       <strong class="text-light pull-right"><?= $jumlah_kematian; ?></strong>
     </div>
     <div class="card-body text-white bg-success">
-      <p class="card-text text-light"><a href="<?= base_url(); ?>warga/data_kematian.html" class="text-white">Lihat Detail</a></p>
+      <p class="card-text text-light"><a href="<?= base_url(); ?>admin/data_kematian.html" class="text-white">Lihat Detail</a></p>
     </div>
   </div>
 </div>
-<div class="col-md-2"></div>
+<div class="col-md-4">
+  <div class="card">
+    <div class="card-header bg-success">
+      <strong class="card-title text-light">Vaksin Covid</strong>
+      <strong class="text-light pull-right"><?= $jumlah_vaksin; ?></strong>
+    </div>
+    <div class="card-body text-white bg-success">
+      <p class="card-text text-light"><a href="<?= base_url(); ?>admin/vaksin_covid" class="text-white">Lihat Detail</a></p>
+    </div>
+  </div>
+</div>
 <div class="col-md-4">
   <div class="card">
     <div class="card-header bg-success">
@@ -29,7 +38,7 @@
       <strong class="text-light pull-right"><?= $jumlah_pkh; ?></strong>
     </div>
     <div class="card-body text-white bg-success">
-      <p class="card-text text-light"><a href="<?= base_url(); ?>bantuan/pkh" class="text-white">Lihat Detail</a></p>
+      <p class="card-text text-light"><a href="<?= base_url(); ?>admin/bantuan/pkh" class="text-white">Lihat Detail</a></p>
     </div>
   </div>
 </div>
@@ -40,7 +49,7 @@
       <strong class="text-light pull-right"><?= $jumlah_bst; ?></strong>
     </div>
     <div class="card-body text-white bg-success">
-      <p class="card-text text-light"><a href="<?= base_url(); ?>bantuan/bst" class="text-white">Lihat Detail</a></p>
+      <p class="card-text text-light"><a href="<?= base_url(); ?>admin/bantuan/bst" class="text-white">Lihat Detail</a></p>
     </div>
   </div>
 </div>
@@ -51,7 +60,7 @@
       <strong class="text-light pull-right"><?= $jumlah_blt; ?></strong>
     </div>
     <div class="card-body text-white bg-success">
-      <p class="card-text text-light"><a href="<?= base_url(); ?>bantuan/blt" class="text-white">Lihat Detail</a></p>
+      <p class="card-text text-light"><a href="<?= base_url(); ?>admin/bantuan/blt" class="text-white">Lihat Detail</a></p>
     </div>
   </div>
 </div>

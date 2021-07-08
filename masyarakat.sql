@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Jun 2021 pada 09.30
+-- Waktu pembuatan: 08 Jul 2021 pada 08.50
 -- Versi server: 10.1.32-MariaDB
 -- Versi PHP: 7.2.5
 
@@ -106,6 +106,19 @@ INSERT INTO `user` (`id_user`, `password`, `foto`, `nama`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `vaksin_covid`
+--
+
+CREATE TABLE `vaksin_covid` (
+  `id_vaksin` int(11) NOT NULL,
+  `id_warga` varchar(191) NOT NULL,
+  `tanggal` date NOT NULL,
+  `status` enum('belum','sudah') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `visimisi`
 --
 
@@ -177,6 +190,12 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
+-- Indeks untuk tabel `vaksin_covid`
+--
+ALTER TABLE `vaksin_covid`
+  ADD PRIMARY KEY (`id_vaksin`);
+
+--
 -- Indeks untuk tabel `visimisi`
 --
 ALTER TABLE `visimisi`
@@ -215,6 +234,12 @@ ALTER TABLE `saran`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `vaksin_covid`
+--
+ALTER TABLE `vaksin_covid`
+  MODIFY `id_vaksin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `warga`

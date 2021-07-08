@@ -20,7 +20,7 @@ class Login extends CI_Controller {
         ]);
         redirect('admin.html');
       } else {
-        $this->session->set_userdata([
+        $this->session->set_flashdata([
           'pesan' => '<div class="alert alert-danger" role="alert">
             Username atau password salah
           </div>'
