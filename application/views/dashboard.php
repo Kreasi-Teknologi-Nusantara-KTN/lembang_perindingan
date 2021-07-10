@@ -1,95 +1,70 @@
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-header bg-success">
-        <strong class="card-title text-light">Penduduk</strong>
-        <strong class="text-light pull-right"><?= $jumlah_penduduk; ?></strong>
-      </div>
-      <div class="card-body text-white bg-success">
-        <p class="card-text text-light"><a href="<?= base_url(); ?>warga.html" class="text-white">Lihat Detail</a></p>
-      </div>
+<section class="container tm-home-section-1" id="more">
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="tm-home-box-3 tm-home-box-1-2 tm-home-box-1-center">
+        <a href="<?= base_url(); ?>warga.html">
+          <div class="tm-green-gradient-bg tm-city-price-container">
+            <span>Jumlah Penduduk</span>
+            <span><?= $jumlah_penduduk; ?></span>
+          </div>	
+        </a>			
+      </div>				
     </div>
-  </div>
-  <div class="col-md-4"></div>
-</div>
 
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-header bg-success">
-        <strong class="card-title text-light">Kematian</strong>
-        <strong class="text-light pull-right"><?= $jumlah_kematian; ?></strong>
-      </div>
-      <div class="card-body text-white bg-success">
-        <p class="card-text text-light"><a href="<?= base_url(); ?>warga/data_kematian.html" class="text-white">Lihat Detail</a></p>
-      </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="tm-home-box-3 tm-home-box-1-2 tm-home-box-1-center">
+        <a href="<?= base_url(); ?>warga/data_kematian.html">
+          <div class="tm-green-gradient-bg tm-city-price-container">
+            <span>Jumlah Kematian</span>
+            <span><?= $jumlah_kematian; ?></span>
+          </div>	
+        </a>			
+      </div>				
     </div>
   </div>
-  <div class="col-md-4"></div>
-</div>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="tm-home-box-3 tm-home-box-1-2 tm-home-box-1-center">
+        <a href="<?= base_url(); ?>bantuan/bst">
+          <div class="tm-green-gradient-bg tm-city-price-container">
+            <span>Penerima BST</span>
+            <span><?= $jumlah_bst; ?></span>
+          </div>	
+        </a>			
+      </div>				
+    </div>
 
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-header bg-success">
-        <strong class="card-title text-light">Penerima BST</strong>
-        <strong class="text-light pull-right"><?= $jumlah_bst; ?></strong>
-      </div>
-      <div class="card-body text-white bg-success">
-        <p class="card-text text-light"><a href="<?= base_url(); ?>bantuan/bst" class="text-white">Lihat Detail</a></p>
-      </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="tm-home-box-3 tm-home-box-1-2 tm-home-box-1-center">
+        <a href="<?= base_url(); ?>bantuan/blt">
+          <div class="tm-green-gradient-bg tm-city-price-container">
+            <span>Penerima BLT</span>
+            <span><?= $jumlah_blt; ?></span>
+          </div>	
+        </a>			
+      </div>				
     </div>
   </div>
-  <div class="col-md-4"></div>
-</div>
+  <div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="tm-home-box-3 tm-home-box-1-2 tm-home-box-1-center">
+        <a href="<?= base_url(); ?>bantuan/blt">
+          <div class="tm-green-gradient-bg tm-city-price-container">
+            <span>Penerima PKH</span>
+            <span><?= $jumlah_pkh; ?></span>
+          </div>	
+        </a>			
+      </div>				
+    </div>
 
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-header bg-success">
-        <strong class="card-title text-light">Penerima BLT</strong>
-        <strong class="text-light pull-right"><?= $jumlah_blt; ?></strong>
-      </div>
-      <div class="card-body text-white bg-success">
-        <p class="card-text text-light"><a href="<?= base_url(); ?>bantuan/blt" class="text-white">Lihat Detail</a></p>
-      </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+      <div class="tm-home-box-3 tm-home-box-1-2 tm-home-box-1-center">
+        <a href="<?= base_url(); ?>warga/saran_perubahan.html">
+          <div class="tm-green-gradient-bg tm-city-price-container">
+            <span>Kirim Saran Perubahan Data</span>
+          </div>	
+        </a>			
+      </div>				
     </div>
   </div>
-  <div class="col=md-4"></div>
-</div>
-
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-header bg-success">
-        <strong class="card-title text-light">Saran Perubahan Data</strong>
-        <strong class="text-light pull-right"></strong>
-      </div>
-      <div class="card-body text-white bg-success">
-        <p class="card-text text-light"><a href="<?= base_url(); ?>warga/saran_perubahan.html" class="text-white">Kirim Saran Perubahan</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4"></div>
-</div>
-
-<div class="row">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-header bg-success">
-        <strong class="card-title text-light">Visi dan Misi</strong>
-        <strong class="text-light pull-right"></strong>
-      </div>
-      <div class="card-body text-white bg-success">
-        <p class="card-text text-light"><a href="<?= base_url(); ?>visi_misi.html" class="text-white">Lihat Detail</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4"></div>
-</div>
+</section>

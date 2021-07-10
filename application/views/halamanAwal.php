@@ -1,166 +1,127 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sistem Masyarakat</title>
-  <meta name="description" content="Sufee Admin - HTML5 Admin Template">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <link rel="apple-touch-icon" href="apple-icon.png">
-  <link rel="shortcut icon" href="favicon.ico">
-
-  <link rel="stylesheet" href="<?= base_url(); ?>vendors/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>vendors/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>vendors/themify-icons/css/themify-icons.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>vendors/flag-icon-css/css/flag-icon.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>vendors/selectFX/css/cs-skin-elastic.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>vendors/jqvmap/dist/jqvmap.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css">
-
-
-  <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css">
-
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
+  <title>Lembang Perindingan</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,700' rel='stylesheet' type='text/css'>
+  <link href="<?= base_url(); ?>assets/templatemo/css/font-awesome.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>assets/templatemo/css/bootstrap.min.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>assets/templatemo/css/bootstrap-datetimepicker.min.css" rel="stylesheet">  
+  <link href="<?= base_url(); ?>assets/templatemo/css/flexslider.css" rel="stylesheet">
+  <link href="<?= base_url(); ?>assets/templatemo/css/templatemo-style.css" rel="stylesheet">
 </head>
-
-<body>
-
-
-  <!-- Left Panel -->
-
-  <!-- <aside id="left-panel" class="left-panel">
-    <nav class="navbar navbar-expand-sm navbar-default">
-
-      <div class="navbar-header">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fa fa-bars"></i>
-        </button>
-        <a class="navbar-brand" href="./">
-        </a>
-        <a class="navbar-brand hidden" href="./">
-        </a>
-      </div>
-
-      <div id="main-menu" class="main-menu collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active">
-            <a href="<?= base_url(); ?>"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
-          </li>
-          <li>
-            <a href="<?= base_url(); ?>warga.html"> <i class="menu-icon fa fa-laptop"></i>Warga</a>
-          </li>
-          <li>
-            <a href="<?= base_url(); ?>warga/data_kematian.html"> <i class="menu-icon fa fa-laptop"></i>Data Kematian</a>
-          </li>
-          <li>
-            <a href="<?= base_url(); ?>warga/saran_perubahan.html"> <i class="menu-icon fa fa-laptop"></i>Saran Perubahan</a>
-          </li>
-          <h3 class="menu-title">Data Bantuan</h3>
-          <li>
-            <a href="<?= base_url(); ?>bantuan/pkh"> <i class="menu-icon fa fa-laptop"></i>Data PKH</a>
-          </li>
-          <li>
-            <a href="<?= base_url(); ?>bantuan/blt"> <i class="menu-icon fa fa-laptop"></i>Data BLT</a>
-          </li>
-          <li>
-            <a href="<?= base_url(); ?>bantuan/bst"> <i class="menu-icon fa fa-laptop"></i>Data BST</a>
-          </li>
-          <h3 class="menu-title">Informasi Desa</h3>
-          <li>
-            <a href="<?= base_url(); ?>visi_misi.html"> <i class="menu-icon fa fa-laptop"></i> Visi Misi</a>
-          </li>
-          <li>
-            <a href="<?= base_url(); ?>berita_desa.html"> <i class="menu-icon fa fa-laptop"></i> Berita Desa</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </aside> -->
-
-  <!-- Left Panel -->
-
-  <!-- Right Panel -->
-
-  <div id="right-panel" class="right-panel">
-    <div class="breadcrumbs">
-        <div class="col-sm-4">
-            <div class="page-header float-left">
-              <a href="<?= base_url(); ?>" class="btn btn-success mt-4 mb-4">Home</a>
-            </div>
+<body class="tm-gray-bg" >
+  <!-- Header -->
+  <div class="tm-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 col-md-4 col-sm-3 tm-site-name-container">
+          <!-- <a href="#" class="tm-site-name">Holiday</a>	 -->
         </div>
-        <div class="col-sm-8">
-            <div class="page-header float-right">
-              <a href="<?= base_url(); ?>login" class="btn btn-success mt-4 mb-4">Login</a>
-            </div>
-        </div>
-    </div>
+        <div class="col-lg-6 col-md-8 col-sm-9">
+          <div class="mobile-menu-icon">
+            <i class="fa fa-bars"></i>
+          </div>
+          <nav class="tm-nav">
+          <ul>
+            <li><a href="<?= base_url(); ?>" class="active">Home</a></li>
+            <li><a href="<?= base_url(); ?>visi_misi.html">Visi Misi</a></li>
+            <li><a href="<?= base_url(); ?>berita_desa.html">Informasi Desa</a></li>
+            <li><a href="<?= base_url(); ?>login">Login</a></li>
+          </ul>
+        </nav>		
+        </div>				
+      </div>
+    </div>	  	
+  </div>
+	
+  <!-- Banner -->
+  <section class="tm-banner">
+    <!-- Flexslider -->
+    <div class="flexslider flexslider-banner" >
+      <ul class="slides">
+        <li>
+          <div class="tm-banner-inner" style="background-color: #000000; opacity:0.5;">
+          </div>
+          <div class="tm-banner-inner">
+            <h3 class="tm-banner-title">Selamat Datang di Website Resmi</h3>
+            <p class="tm-banner-subtitle">DATA PENDUDUK LEMBANG PERINDINGAN</p>
+          </div>
+          <img src="<?= base_url(); ?>assets/lembang_perindingan.jpeg" alt="Image" />
+        </li>
+        <li>
+          <div class="tm-banner-inner" style="background-color: #000000; opacity:0.5;">
+          </div>
+          <div class="tm-banner-inner">
+            <h3 class="tm-banner-title">Selamat Datang di Website Resmi</h3>
+            <p class="tm-banner-subtitle">DATA PENDUDUK LEMBANG PERINDINGAN</p>
+          </div>
+          <img src="<?= base_url(); ?>assets/lembang_perindingan.jpeg" alt="Image" />
+        </li>
+        <li>
+          <div class="tm-banner-inner" style="background-color: #000000; opacity:0.5;">
+          </div>
+          <div class="tm-banner-inner">
+            <h3 class="tm-banner-title">Selamat Datang di Website Resmi</h3>
+            <p class="tm-banner-subtitle">DATA PENDUDUK LEMBANG PERINDINGAN</p>
+          </div>
+          <img src="<?= base_url(); ?>assets/lembang_perindingan.jpeg" alt="Image" />
+        </li>
+      </ul>
+    </div>	
+  </section>
 
-    <div class="content mt-3">
-      <?php $this->load->view($konten); ?>
-    </div> <!-- .content -->
-  </div><!-- /#right-panel -->
+	<?php $this->load->view($konten); ?>
+	
 
-  <!-- Right Panel -->
-
-  <script src="<?= base_url(); ?>vendors/jquery/dist/jquery.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/popper.js/dist/umd/popper.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/main.js"></script>
-
-
-  <script src="<?= base_url(); ?>vendors/chart.js/dist/Chart.bundle.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/dashboard.js"></script>
-  <script src="<?= base_url(); ?>assets/js/widgets.js"></script>
-  <script src="<?= base_url(); ?>vendors/jqvmap/dist/jquery.vmap.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
-  <script src="<?= base_url(); ?>vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/init-scripts/data-table/datatables-init.js"></script>
-  <script src="<?= base_url(); ?>vendors/jszip/dist/jszip.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/pdfmake/build/pdfmake.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
-  <script>
-      (function($) {
-          "use strict";
-
-          jQuery('#vmap').vectorMap({
-              map: 'world_en',
-              backgroundColor: null,
-              color: '#ffffff',
-              hoverOpacity: 0.7,
-              selectedColor: '#1de9b6',
-              enableZoom: true,
-              showTooltip: true,
-              values: sample_data,
-              scaleColors: ['#1de9b6', '#03a9f5'],
-              normalizeFunction: 'polynomial'
-          });
-      })(jQuery);
-
-    function logout() {
-      firebase.auth().signOut().then(() => {
-        window.location.href = "<?= base_url(); ?>";
-      }).catch((error) => {
-        // An error happened.
+	<footer class="tm-black-bg">
+		<div class="container">
+			<div class="row">
+        <h1 class="tm-copyright-text">Website Data Penduduk Lembang Perindingan</h1>
+        <H2 class="tm-copyright-text">Jl. Poros Sillanan - Pa'buaran</H2>
+				<p class="tm-copyright-text">Copyright &copy; 2021 Lembang Perindingan</p>
+			</div>
+		</div>		
+	</footer>
+	<script type="text/javascript" src="<?= base_url(); ?>assets/templatemo/js/jquery-1.11.2.min.js"></script>      		<!-- jQuery -->
+  <script type="text/javascript" src="<?= base_url(); ?>assets/templatemo/js/moment.js"></script>							<!-- moment.js -->
+	<script type="text/javascript" src="<?= base_url(); ?>assets/templatemo/js/bootstrap.min.js"></script>					<!-- bootstrap js -->
+	<script type="text/javascript" src="<?= base_url(); ?>assets/templatemo/js/bootstrap-datetimepicker.min.js"></script>	<!-- bootstrap date time picker js, http://eonasdan.github.io/bootstrap-datetimepicker/ -->
+	<script type="text/javascript" src="<?= base_url(); ?>assets/templatemo/js/jquery.flexslider-min.js"></script>
+  <script type="text/javascript" src="<?= base_url(); ?>assets/templatemo/js/templatemo-script.js"></script>      		<!-- Templatemo Script -->
+	<script>
+		// HTML document is loaded. DOM is ready.
+		$(function() {
+			$('#hotelCarTabs a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+			})
+      $('.date').datetimepicker({
+        format: 'MM/DD/YYYY'});
+        $('.date-time').datetimepicker();
+			// https://css-tricks.com/snippets/jquery/smooth-scrolling/
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 1000);
+            return false;
+          }
+        }
       });
-    }
-  </script>
-
+		});
+		
+		// Load Flexslider when everything is loaded.
+		$(window).load(function() {	
+      $('.flexslider').flexslider({
+        controlNav: false
+      });
+    });
+	</script>
 </body>
-
 </html>

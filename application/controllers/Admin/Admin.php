@@ -11,7 +11,6 @@ class Admin extends CI_Controller {
     $data['jumlah_pkh']       = count($this->BantuanModel->getAll('pkh'));
     $data['jumlah_blt']       = count($this->BantuanModel->getAll('blt'));
     $data['jumlah_bst']       = count($this->BantuanModel->getAll('bst'));
-    $data['jumlah_vaksin']    = count($this->WargaModel->getVaksinCovid());
 		$this->load->view('admin/index', $data);
 	}
   

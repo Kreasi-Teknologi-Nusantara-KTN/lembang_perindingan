@@ -1,11 +1,5 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
 <html class="no-js" lang="en">
-<!--<![endif]-->
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,10 +16,6 @@
   <link rel="stylesheet" href="<?= base_url(); ?>vendors/flag-icon-css/css/flag-icon.min.css">
   <link rel="stylesheet" href="<?= base_url(); ?>vendors/selectFX/css/cs-skin-elastic.css">
   <link rel="stylesheet" href="<?= base_url(); ?>vendors/jqvmap/dist/jqvmap.min.css">
-  <!-- <link rel="stylesheet" href="<?= base_url(); ?>vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="<?= base_url(); ?>vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css"> -->
-
-
   <link rel="stylesheet" href="<?= base_url(); ?>assets/css/style.css">
 
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
@@ -43,14 +33,6 @@
   <script src="<?= base_url(); ?>vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
   <script src="<?= base_url(); ?>vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
   <script src="https://cdn.ckeditor.com/ckeditor5/27.1.0/classic/ckeditor.js"></script>
-  <!-- <script src="<?= base_url(); ?>vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-  <script src="<?= base_url(); ?>vendors/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-  <script src="<?= base_url(); ?>assets/js/init-scripts/data-table/datatables-init.js"></script> -->
   <script src="<?= base_url(); ?>vendors/jszip/dist/jszip.min.js"></script>
   <script src="<?= base_url(); ?>vendors/pdfmake/build/pdfmake.min.js"></script>
   <script src="<?= base_url(); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
@@ -69,15 +51,14 @@
 </head>
 
 <body>
-  <!-- <aside id="left-panel" class="left-panel">
+  <aside id="left-panel" class="left-panel">
     <nav class="navbar navbar-expand-sm navbar-default">
 
       <div class="navbar-header">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fa fa-bars"></i>
         </button>
-        <a class="navbar-brand" href="./">
-        </a>
+        <a class="navbar-brand" href="./"><strong>LEMBANG PERINDINGAN</strong></a>
         <a class="navbar-brand hidden" href="./">
         </a>
       </div>
@@ -120,7 +101,7 @@
         </ul>
       </div>
     </nav>
-  </aside> -->
+  </aside>
 
   <!-- Left Panel -->
 
