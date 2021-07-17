@@ -2,6 +2,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class HalamanAwal extends CI_Controller {
+
+  
+  public function __construct()
+  {
+    parent::__construct();
+    if ($this->session->login) redirect('admin.html');
+  }
+  
   
 	public function index()
 	{
