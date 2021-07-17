@@ -21,6 +21,7 @@
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="<?= base_url(); ?>assets/magnific-popup.css">
   <link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   
   <script src="<?= base_url(); ?>vendors/jquery/dist/jquery.min.js"></script>
   <script src="<?= base_url(); ?>vendors/popper.js/dist/umd/popper.min.js"></script>
@@ -38,13 +39,12 @@
   <script src="<?= base_url(); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
   <script src="<?= base_url(); ?>assets/jquery.magnific-popup.js"></script>
   <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script>
-    
     ClassicEditor.create( document.querySelector( '#editor' ) );
-    
     $(document).ready(function() {
-
       $('.table').DataTable();
+      $('.js-example-basic-single').select2();
     });
   </script>
 

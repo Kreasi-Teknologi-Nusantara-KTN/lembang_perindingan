@@ -15,7 +15,7 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="exampleInputEmail1">Warga</label>
-            <select name="id_warga" id="id_warga" class="form-control">
+            <select name="id_warga" id="id_warga" class="form-control js-example-basic-single" style="width: 100%">
               <option>Pilih Warga</option>
               <?php
                 foreach ($warga as $key) { ?>
