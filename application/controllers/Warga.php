@@ -11,7 +11,7 @@ class Warga extends CI_Controller {
 	{
     $data['konten'] = 'warga/index';
     $data['warga']  = $this->WargaModel->getAll();
-		$this->load->view('halamanAwal', $data);
+		$this->load->view('halamanAwalKonten', $data);
 	}
 
   public function saranPerubahan()
@@ -35,7 +35,7 @@ class Warga extends CI_Controller {
       }
     }
     $data['konten'] = 'warga/saranPerubahan';
-		$this->load->view('halamanAwal', $data);
+		$this->load->view('halamanAwalKonten', $data);
   }
 
   public function visiMisi()
@@ -46,28 +46,28 @@ class Warga extends CI_Controller {
       $data['misi'] = '';
     }
     $data['konten'] = 'warga/visiMisi';
-		$this->load->view('halamanAwal', $data);
+		$this->load->view('halamanAwalKonten', $data);
   }
 
   public function beritaDesa()
   {
     $data['konten'] = 'warga/beritaDesa/index';
     $data['berita'] = $this->BeritaModel->getAll();
-		$this->load->view('halamanAwal', $data);
+		$this->load->view('halamanAwalKonten', $data);
   }
 
   public function cari()
   {
     $data['warga']  = $this->WargaModel->cari();
     $data['konten'] = 'warga/index';
-		$this->load->view('halamanAwal', $data);
+		$this->load->view('halamanAwalKonten', $data);
   }
 
   public function dataKematian()
   {
     $data['konten']   = 'warga/dataKematian';
     $data['kematian'] = $this->WargaModel->getDataKematian();
-		$this->load->view('halamanAwal', $data);
+		$this->load->view('halamanAwalKonten', $data);
   }
 
   public function cetak()

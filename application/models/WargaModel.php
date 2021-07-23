@@ -3,16 +3,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class WargaModel extends CI_Model {
   
-	public function insert()
+	public function insert($data)
 	{
-    $this->db->insert('warga', [
-      'nik'               => $this->input->post('nik'),
-      'nama'              => $this->input->post('nama'),
-      'tempat_lahir'      => $this->input->post('tempat_lahir'),
-      'tanggal_lahir'     => $this->input->post('tanggal_lahir'),
-      'alamat'            => $this->input->post('alamat'),
-      'status_perkawinan' => $this->input->post('status_perkawinan')
-    ]);
+    $this->db->insert('warga', $data);
 	}
   
 	public function edit($id_warga)
@@ -22,7 +15,6 @@ class WargaModel extends CI_Model {
     } else {
       $config['upload_path']    = './assets/'; //path upload
       $config['allowed_types']  = 'png|jpg|jpeg'; //tipe file yang diperbolehkan
-      $config['max_size']       = 10000; // maksimal sizze
 
       $this->load->library('upload'); //meload librari upload
       $this->upload->initialize($config);
@@ -61,6 +53,13 @@ class WargaModel extends CI_Model {
   {
     return $this->db->get_where('warga', [
       'id_warga'  => $id_warga
+    ])->row_array();
+  }
+
+  public function getByNik($nik)
+  {
+    return $this->db->get_where('warga', [
+      'nik'  => $nik
     ])->row_array();
   }
 

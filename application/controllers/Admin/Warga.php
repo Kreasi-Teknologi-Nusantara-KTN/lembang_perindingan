@@ -24,7 +24,16 @@ class Warga extends CI_Controller {
       $this->form_validation->set_rules('alamat', 'Alamat', 'required');
       $this->form_validation->set_rules('status_perkawinan', 'Status Perkawinan', 'required');
       if ($this->form_validation->run() == TRUE) {
-        $this->WargaModel->insert();
+        $data = [
+          'id_warga'          => uniqid(),
+          'nik'               => $this->input->post('nik'),
+          'nama'              => $this->input->post('nama'),
+          'tempat_lahir'      => $this->input->post('tempat_lahir'),
+          'tanggal_lahir'     => $this->input->post('tanggal_lahir'),
+          'alamat'            => $this->input->post('alamat'),
+          'status_perkawinan' => $this->input->post('status_perkawinan')
+        ];
+        $this->WargaModel->insert($data);
         $this->session->set_flashdata('pesan', '
           <div class="alert alert-success" role="alert">
             Berhasil Tambah Data Warga
@@ -75,17 +84,18 @@ class Warga extends CI_Controller {
     for ($row = 2; $row <= $highestRow; $row++) {                  //  Read a row of data into an array                 
       $rowData = $sheet->rangeToArray('A' . $row . ':' . $highestColumn . $row, NULL, TRUE, FALSE);   
       // Sesuaikan key array dengan nama kolom di database   
+      $id_warga           = uniqid();
       $status_perkawinan  = strtolower($rowData[0][5]) == 'menikah' ? 'menikah' : 'belum_menikah';                                                      
-      $data = array(
+      $data               = [
+        "id_warga"          => $id_warga,
         "nik"               => $rowData[0][0],
         "nama"              => $rowData[0][1],
         "tempat_lahir"      => $rowData[0][2],
         "tanggal_lahir"     => $rowData[0][3],
         "alamat"            => $rowData[0][4],
         "status_perkawinan" => $status_perkawinan
-      );
-
-      $insert = $this->db->insert("warga",$data);
+      ];
+      $this->WargaModel->insert($data);
     }
 
     file_exists('./assets/' . $this->upload->data('file_name')) ? unlink('./assets/' . $this->upload->data('file_name')) : '';

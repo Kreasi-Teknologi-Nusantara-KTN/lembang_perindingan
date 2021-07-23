@@ -12,7 +12,7 @@ class Bantuan extends CI_Controller {
     $data['konten']       = 'warga/bantuan';
     $data['bantuan']      = $this->BantuanModel->getAll($jenis_bantuan);
     $data['jenisBantuan'] = $jenis_bantuan;
-		$this->load->view('halamanAwal', $data);
+		$this->load->view('halamanAwalKonten', $data);
 	}
 
   public function cetak($jenis_bantuan)
