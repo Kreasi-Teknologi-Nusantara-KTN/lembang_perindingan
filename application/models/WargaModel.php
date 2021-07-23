@@ -40,7 +40,7 @@ class WargaModel extends CI_Model {
 
   public function getAll()
   {
-    return $this->db->get('warga')->result_array();
+    return $this->db->get_where('warga', ['status_kematian' => '0'])->result_array();
   }
 
   public function hapus($id_warga)
