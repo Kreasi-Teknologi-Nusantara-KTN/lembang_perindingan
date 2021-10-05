@@ -11,6 +11,19 @@ class Admin extends CI_Controller {
     $data['jumlah_pkh']       = count($this->BantuanModel->getAll('pkh'));
     $data['jumlah_blt']       = count($this->BantuanModel->getAll('blt'));
     $data['jumlah_bst']       = count($this->BantuanModel->getAll('bst'));
+    $data['jumlah_17']        = 0;
+
+    $warga  = $this->WargaModel->getAll();
+    
+    foreach ($warga as $key) {
+      $birthDate  = new DateTime($key['tanggal_lahir']);
+      $today      = new DateTime("today");
+      $y          = $today->diff($birthDate)->y;
+      if ($y >= 17) {
+        $data['jumlah_17']++;
+      }
+    }
+    
 		$this->load->view('admin/index', $data);
 	}
   

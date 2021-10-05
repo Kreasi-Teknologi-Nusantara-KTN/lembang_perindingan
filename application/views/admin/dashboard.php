@@ -1,9 +1,8 @@
 <div class="row">
-  <div class="col-md-4"></div>
   <div class="col-md-4">
     <div class="card">
       <div class="card-header bg-success">
-        <strong class="card-title text-light">Penduduk</strong>
+        <strong class="card-title text-light">Jumlah Penduduk</strong>
         <strong class="text-light pull-right"><?= $jumlah_penduduk; ?></strong>
       </div>
       <div class="card-body text-white bg-success">
@@ -11,13 +10,10 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4"></div>
-
-  <div class="col-md-4"></div>
   <div class="col-md-4">
     <div class="card">
       <div class="card-header bg-success">
-        <strong class="card-title text-light">Kematian</strong>
+        <strong class="card-title text-light">Jumlah Kematian</strong>
         <strong class="text-light pull-right"><?= $jumlah_kematian; ?></strong>
       </div>
       <div class="card-body text-white bg-success">
@@ -25,9 +21,6 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4"></div>
-
-  <div class="col-md-4"></div>
   <div class="col-md-4">
     <div class="card">
       <div class="card-header bg-success">
@@ -39,23 +32,6 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4"></div>
-
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-header bg-success">
-        <strong class="card-title text-light">Penerima BST</strong>
-        <strong class="text-light pull-right"><?= $jumlah_bst; ?></strong>
-      </div>
-      <div class="card-body text-white bg-success">
-        <p class="card-text text-light"><a href="<?= base_url(); ?>admin/bantuan/bst" class="text-white">Lihat Detail</a></p>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4"></div>
-
-  <div class="col-md-4"></div>
   <div class="col-md-4">
     <div class="card">
       <div class="card-header bg-success">
@@ -67,33 +43,26 @@
       </div>
     </div>
   </div>
-  <div class="col-md-4"></div>
-
-  <div class="col-md-4"></div>
   <div class="col-md-4">
     <div class="card">
       <div class="card-header bg-success">
-        <strong class="card-title text-light">Saran Perubahan Data</strong>
-        <strong class="text-light pull-right"></strong>
+        <strong class="card-title text-light">Penerima BST</strong>
+        <strong class="text-light pull-right"><?= $jumlah_bst; ?></strong>
       </div>
       <div class="card-body text-white bg-success">
-        <p class="card-text text-light"><a href="<?= base_url(); ?>admin/saran_perubahan.html" class="text-white">Lihat Saran Perubahan</a></p>
+        <p class="card-text text-light"><a href="<?= base_url(); ?>admin/bantuan/bst" class="text-white">Lihat Detail</a></p>
       </div>
     </div>
   </div>
-  <div class="col-md-4"></div>
-
-  <div class="col-md-4"></div>
   <div class="col-md-4">
     <div class="card">
       <div class="card-header bg-success">
-        <strong class="card-title text-light">Visi dan Misi</strong>
-        <strong class="text-light pull-right"></strong>
+        <strong class="card-title text-light">Jumlah Umur 7 Tahun Keatas</strong>
+        <strong class="text-light pull-right"><?= $jumlah_17; ?></strong>
       </div>
       <div class="card-body text-white bg-success">
-        <p class="card-text text-light"><a href="<?= base_url(); ?>admin/visi_misi.html" class="text-white">Lihat Detail</a></p>
+        <p class="card-text text-light"><a href="#" class="text-white">Lihat Detail</a></p>
       </div>
     </div>
   </div>
-  <div class="col-md-4"></div>
 </div>
