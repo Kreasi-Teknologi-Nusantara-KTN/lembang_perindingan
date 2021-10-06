@@ -57,11 +57,11 @@
   <div class="col-md-4">
     <div class="card">
       <div class="card-header bg-success">
-        <strong class="card-title text-light">Jumlah Umur 7 Tahun Keatas</strong>
+        <strong class="card-title text-light">Jumlah Umur 17 Tahun Keatas</strong>
         <strong class="text-light pull-right"><?= $jumlah_17; ?></strong>
       </div>
       <div class="card-body text-white bg-success">
-        <p class="card-text text-light"><a href="#" class="text-white">Lihat Detail</a></p>
+        <p class="card-text text-light"><a href="<?= base_url(); ?>admin/warga/17" class="text-white">Lihat Detail</a></p>
       </div>
     </div>
   </div>

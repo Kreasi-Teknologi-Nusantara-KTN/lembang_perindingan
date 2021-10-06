@@ -43,6 +43,23 @@ class WargaModel extends CI_Model {
     return $this->db->get_where('warga', ['status_kematian' => '0'])->result_array();
   }
 
+  public function get17()
+  {
+    $warga  = $this->getAll();
+    $data   = [];
+    
+    foreach ($warga as $key) {
+      $birthDate  = new DateTime($key['tanggal_lahir']);
+      $today      = new DateTime("today");
+      $y          = $today->diff($birthDate)->y;
+      if ($y >= 17) {
+        array_push($data, $key);
+      }
+    }
+
+    return $data;
+  }
+
   public function hapus($id_warga)
   {
     $this->db->where('id_warga', $id_warga);

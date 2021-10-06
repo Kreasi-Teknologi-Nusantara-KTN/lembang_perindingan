@@ -14,6 +14,13 @@ class Warga extends CI_Controller {
 		$this->load->view('admin/index', $data);
 	}
   
+	public function warga17()
+	{
+    $data['konten'] = 'admin/warga/17';
+    $data['warga']  = $this->WargaModel->get17();
+		$this->load->view('admin/index', $data);
+	}
+  
 	public function tambah()
 	{
     if ($this->input->post()) {
